@@ -1,0 +1,14 @@
+G:\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.dll
+G:\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.pdb
+G:\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.dll
+G:\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.pdb
+G:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csprojResolveAssemblyReference.cache
+G:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.dll
+G:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.pdb
+F:\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.dll
+F:\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.pdb
+F:\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.dll
+F:\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.pdb
+F:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csprojResolveAssemblyReference.cache
+F:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.dll
+F:\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.pdb

@@ -1,0 +1,11 @@
+G:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll
+G:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.pdb
+G:\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.dll
+G:\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.pdb
+F:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll
+F:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.pdb
+F:\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.dll
+F:\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.pdb
+F:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll.config
+F:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll.CodeAnalysisLog.xml
+F:\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll.lastcodeanalysissucceeded
