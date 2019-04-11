@@ -8,14 +8,7 @@ namespace Controlador
 {
     public class cDia : cEntidad
     {
-        public cDia():base ("TDia")
-        {}
+        public cDia() { }
 
-        public override string[] NombresAtributos()
-        {
-            return new string[] { "CodDia", "Dia"};
-
-        }
-            
     }
 }

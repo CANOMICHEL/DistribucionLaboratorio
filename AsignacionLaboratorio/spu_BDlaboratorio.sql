@@ -3,7 +3,7 @@ use BDOrganizacionLaboratoriosDAI
 --======================================================================================
 --================================== TDocente ===========================================
 --======================================================================================
--- SPU Insertar Docente
+-- insertar
 if exists (select * from dbo.sysobjects where name = 'spuTDocente_Insertar')
 	drop procedure spuTDocente_Insertar
 go
@@ -14,8 +14,13 @@ as
 begin
 	if (@CodDocente!= '' and not exists (select * from TDocente where CodDocente = @CodDocente))
 	begin
-		insert into TDocente values(@CodDocente,@Nombre)
-		select CodError = 0, Mensaje = 'Registro insertado exitosamente'
+		if(@Nombre!='')
+		begin
+			insert into TDocente values(@CodDocente,@Nombre)
+			select CodError = 0, Mensaje = 'Registro insertado exitosamente'
+		end
+		else
+			select CodError = 1, Mensaje='El campo nombre no debe estar en blanco'
 	end
 	else
 		select CodError = 1, Mensaje = 'El código se encuentra en blanco o está duplicado'
@@ -25,7 +30,7 @@ go
 
 
 --=======================================================================================
--- SPU Actualizar Docente
+-- SPU Actualizar 
 if exists (select * from dbo.sysobjects where name = 'spuTDocente_Actualizar')
 	drop procedure spuTDocente_Actualizar
 go
@@ -63,6 +68,7 @@ go
 --======================================================================================
 --================================== TAsignatura ===========================================
 --======================================================================================
+--INSERTAR
 if exists(select* from dbo.sysobjects where name='spuTAsignatura_Insertar')
 	drop procedure spuTAsignatura_Insertar
 go
@@ -98,6 +104,7 @@ else
 end
 go
 
+--ACTUALIZAR
 if exists(select* from dbo.sysobjects where name='spuTAsignatura_Actualizar')
 	drop procedure spuTAsignatura_Actualizar
 go
@@ -138,5 +145,127 @@ else
 end
 go
 
-exec spuTDocente_Listar
+--======================================================================================
+--================================== TDocenteAsignatura ===========================================
+--======================================================================================
+--INSERTAR
+if exists (select* from dbo.sysobjects where name='spuTDocenteAsignatura_Insertar')
+	drop procedure spuTDocenteAsignatura_Insertar
+go
+
+create procedure spuTDocenteAsignatura_Insertar
+	@CodDocente_Asignatura varchar(12),
+	@CodDocente varchar(5),
+	@CodAsignatura varchar(12)
+as
+begin
+if(@CodAsignatura!='' and exists(select* from TDocente_Asignatura where CodDocente_Asignatura=@CodDocente_Asignatura))
+begin
+	if(@CodDocente!='')
+	begin
+		if(@CodAsignatura!='')
+		begin
+			insert into TDocente_Asignatura values(@CodDocente_Asignatura, @CodDocente, @CodAsignatura)
+			select CodError=0,	Mensaje='Registro insertado Exitosamente'
+		end
+		else
+			select CodError = 1
+	end
+	else
+		select CodError = 1
+end
+else
+	select CodError = 1
+end
+go
+
+--ACTUALIZAR
+if exists(select* from dbo.sysobjects where name='spuTDocenteAsignatura_Actualizar')
+	drop procedure spuTDocenteAsignatura_Actualizar
+go
+
+create procedure spuTDocenteAsignatura_Actualizar
+	@CodDocente_Asignatura varchar(12),
+	@CodDocente varchar(5),
+	@CodAsignatura varchar(12)
+as
+begin
+if(@CodAsignatura!='' and exists(select* from TDocente_Asignatura where CodDocente_Asignatura=@CodDocente_Asignatura))
+begin
+	if(@CodDocente!='')
+	begin
+		if(@CodAsignatura!='')
+		begin
+			update TDocente_Asignatura set
+			CodDocente_Asignatura = @CodDocente_Asignatura,
+			CodDocente = @CodDocente,
+			CodAsignatura=@CodAsignatura
+			where CodDocente_Asignatura=@CodDocente_Asignatura
+			select CodError=0,	Mensaje='Registro insertado Exitosamente'
+		end
+		else
+			select CodError = 1
+	end
+	else
+		select CodError = 1
+end
+else
+	select CodError = 1
+end
+go
+
+--======================================================================================
+--================================== TLaboratorio ===========================================
+--======================================================================================
+-- insertar
+if exists (select * from dbo.sysobjects where name = 'spuTLaboratorio_Insertar')
+	drop procedure spuTLaboratorio_Insertar
+go
+create procedure spuTLaboratorio_Insertar
+	@CodLaboratorio varchar (12),
+	@NroLaboratorio varchar(20)
+as
+begin
+	if (@CodLaboratorio!= '' and not exists (select * from TLaboratorio where CodLaboratorio = @CodLaboratorio))
+	begin
+		if(@NroLaboratorio!='')
+		begin
+			insert into TDocente values(@CodLaboratorio,@NroLaboratorio)
+			select CodError = 0, Mensaje = 'Registro insertado exitosamente'
+		end
+		else
+			select CodError = 1
+	end
+	else
+		select CodError = 1
+end
+go
+
+
+
+--=======================================================================================
+-- SPU Actualizar 
+if exists (select * from dbo.sysobjects where name = 'spuTLaboratorio_Actualizar')
+	drop procedure spuTLaboratorio_Actualizar
+go
+create procedure spuTLaboratorio_Actualizar
+	@CodLaboratorio varchar (12),
+	@NroLaboratorio varchar(20)
+as
+begin
+	if (@CodLaboratorio != '' and exists (select * from TLaboratorio where CodLaboratorio = @CodLaboratorio))
+	begin
+		if (@NroLaboratorio != '')
+		begin
+			update TLaboratorio set 
+				NroLaboratorio = @NroLaboratorio
+				where CodLaboratorio = @CodLaboratorio
+			select CodError = 0, Mensaje = 'Registro actualizado exitosamente'
+		end
+	end
+	else
+		select CodError = 1, Mensaje = 'El código no existe en la base de datos'
+end
+go
+
 

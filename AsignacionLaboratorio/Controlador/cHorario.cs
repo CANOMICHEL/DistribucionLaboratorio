@@ -8,15 +8,7 @@ namespace Controlador
 {
     public class cHorario : cEntidad
     {
-        public cHorario()
-            : base("THorario")
-        { }
-
-        public override string[] NombresAtributos()
-        {
-            return new string[] { "CodHorario", "Horario" };
-
-        }
+        public cHorario() { }
 
     }
 }

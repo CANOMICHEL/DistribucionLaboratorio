@@ -8,15 +8,16 @@ namespace Controlador
 {
     public class cUsuario : cEntidad
     {
-        public cUsuario()
-            : base("TUsuario")
-        { }
+        public cUsuario() { }
 
-        public override string[] NombresAtributos()
+        public bool ValidarUsuario(string user,string Password)
         {
-            return new string[] { "Usuario", "Contraseña" };
+            var usuario = (from s in dc.TUsuario
+                           where s.Usuario == user
+                           select s).First();
+            return (usuario.Contraseña==Password);
+
 
         }
-
     }
 }

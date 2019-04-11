@@ -8,15 +8,7 @@ namespace Controlador
 {
     public class cLaboratorio : cEntidad
     {
-        public cLaboratorio()
-            : base("TLaboratorio")
-        { }
-
-        public override string[] NombresAtributos()
-        {
-            return new string[] { "CodLaboratorio", "NroLaboratorio" };
-
-        }
+        public cLaboratorio() { }
 
     }
 }

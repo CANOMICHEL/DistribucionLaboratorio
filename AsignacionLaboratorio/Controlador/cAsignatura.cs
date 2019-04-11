@@ -10,19 +10,9 @@ namespace Controlador
     
     public class cAsignatura:cEntidad
     {
-        public cAsignatura():base ("TAsignatura")
-        {}
+        public cAsignatura() { }
 
-        public override string[] NombresAtributos()
-        {
-            return new string[] { "CodAsignatura", "NombreAsignatura","Creditos","Categoria" };
 
-        }
 
-        public void Insertar()
-        {
-            //dt.InsertTAsignatura();
-        }
-            
     }
 }

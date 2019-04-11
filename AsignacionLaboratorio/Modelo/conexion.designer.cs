@@ -20,9 +20,9 @@ namespace Modelo
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BDOrganizacionLaboratoriosDAI")]
+
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "(new cLectorXml()).cadenaConexion()")]
 	public partial class conexionDataContext : System.Data.Linq.DataContext
 	{
 		

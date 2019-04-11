@@ -6,14 +6,7 @@ if exists (select * from sysdatabases where name = 'BDOrganizacionLaboratoriosDA
 go
 
 CREATE DATABASE BDOrganizacionLaboratoriosDAI -- Create DataBase
-/*on 
-(Name=DBOrganizacionLaboratorios, --primary data file
-FILENAME='E:\SistemaLabo5\DBOrganizacionLaboratorios.mdf',SIZE=5MB,FILEGROWTH=1MB)
-LOG ON
-(NAME=DBOrganizacionLaboratorios_Log, --LOG file
-FILENAME='E:\SistemaLabo5\DBOrganizacionLaboratorios.ldf',SIZE=5MB,FILEGROWTH=1MB)*/
 go
-/*Activar base de datos:DBOrganizacionLaboratorios*/
 use BDOrganizacionLaboratoriosDAI
 go
 /*Crear lo tipos*/
@@ -27,10 +20,20 @@ CREATE TYPE TCodDia FROM varchar(12) not null;
 go 
 CREATE TYPE TCodLaboratorio FROM varchar(12) not null;
 go  
+CREATE TYPE TCodPerfil FROM varchar(12) not null;
+go 
+CREATE TYPE TIdUsuario from varchar(12) not null;
+go
 /*Crear las tablas*/
 CREATE TABLE TUsuario(
+IdUsuario TIdUsuario not null,
 Usuario varchar(50) not null,
 Contraseña varchar(100)not null,
+Nombre varchar (20) not null,
+Apellido_Paterno varchar(20) not null,
+Apellido_Materno varchar (20) not null,
+Dni varchar(10) not null,
+Primary key(IdUsuario)
 )
 go
 CREATE TABLE TDocente(
@@ -85,5 +88,16 @@ FOREIGN KEY(CodDia) references TDia(CodDia),
 FOREIGN KEY(CodHorario) references THorario(CodHorario)
 )
 go
-
-select* from TDocente
+CREATE TABLE TPerfil(
+CodPerfil TCodPerfil not null,
+Perfil varchar (20) not null,
+PRIMARY KEY(CodPerfil)
+)
+go
+CREATE TABLE TPerfil_Usuario(
+CodPerfil TCodPerfil not null,
+CodUsuario TIdUsuario not null,
+Foreign key(CodPerfil) references TPerfil(CodPerfil),
+Foreign key(CodUsuario) references TUsuario(IdUsuario)
+)
+go

@@ -44,16 +44,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.cs">
+    <Compile Include="FrmAsignacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="FrmAsignacion.Designer.cs">
+      <DependentUpon>FrmAsignacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCursosLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCursosLab.Designer.cs">
+      <DependentUpon>FrmCursosLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPadre.Designer.cs">
+      <DependentUpon>FrmPadre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAsignacion.resx">
+      <DependentUpon>FrmAsignacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCursosLab.resx">
+      <DependentUpon>FrmCursosLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPadre.resx">
+      <DependentUpon>FrmPadre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

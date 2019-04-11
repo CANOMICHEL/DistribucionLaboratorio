@@ -49,7 +49,6 @@
     <Compile Include="cEntidad.cs" />
     <Compile Include="cHorario.cs" />
     <Compile Include="cLaboratorio.cs" />
-    <Compile Include="cPrincipal.cs" />
     <Compile Include="cUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
