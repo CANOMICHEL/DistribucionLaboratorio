@@ -53,3 +53,5 @@ E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.CoreCompileIn
 E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.dll
 E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.pdb
+F:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.FrmPadre.resources
+F:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.GenerateResource.cache

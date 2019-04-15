@@ -10,14 +10,16 @@ namespace Controlador
     {
         public cUsuario() { }
 
-        public bool ValidarUsuario(string user,string Password)
+        public bool ValidarUsuario(string Usuario,string Contra)
         {
-            var usuario = (from s in dc.TUsuario
-                           where s.Usuario == user
-                           select s).First();
-            return (usuario.Contraseña==Password);
-
-
+            var usuario = dc.TUsuario1.FirstOrDefault(I => I.Usuario == Usuario);
+            bool existe = false;
+            try {
+                existe = usuario.Contraseña == Contra;
+            }
+            catch(Exception e) {
+            }
+            return existe;
         }
     }
 }

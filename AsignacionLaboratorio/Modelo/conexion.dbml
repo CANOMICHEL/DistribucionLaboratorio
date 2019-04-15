@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDOrganizacionLaboratoriosDAI" Class="conexionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BDOrganizacionLaboratoriosDAI;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="BDOrganizacionLaboratoriosDAIConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LENOVO-PC\SQLEXPRESS;Initial Catalog=BDOrganizacionLaboratoriosDAI;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="BDOrganizacionLaboratoriosDAIConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TPrincipal" Member="TPrincipal">
+    <Type Name="TPrincipal">
+      <Column Name="CodDocente_Asignatura" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="CodLaboratorio" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="CodDia" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="CodHorario" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Association Name="TDia_TPrincipal" Member="TDia" ThisKey="CodDia" OtherKey="CodDia" Type="TDia" IsForeignKey="true" />
+      <Association Name="TDocente_Asignatura_TPrincipal" Member="TDocente_Asignatura" ThisKey="CodDocente_Asignatura" OtherKey="CodDocente_Asignatura" Type="TDocente_Asignatura" IsForeignKey="true" />
+      <Association Name="THorario_TPrincipal" Member="THorario" ThisKey="CodHorario" OtherKey="CodHorario" Type="THorario" IsForeignKey="true" />
+      <Association Name="TLaboratorio_TPrincipal" Member="TLaboratorio" ThisKey="CodLaboratorio" OtherKey="CodLaboratorio" Type="TLaboratorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TUsuario1" Member="TUsuario1">
+    <Type Name="TUsuario1">
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.TAsignatura" Member="TAsignatura">
     <Type Name="TAsignatura">
       <Column Name="CodAsignatura" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -9,17 +27,12 @@
       <Association Name="TAsignatura_TDocente_Asignatura" Member="TDocente_Asignatura" ThisKey="CodAsignatura" OtherKey="CodAsignatura" Type="TDocente_Asignatura" />
     </Type>
   </Table>
-  <Table Name="dbo.TUsuario" Member="TUsuario">
-    <Type Name="TUsuario">
-      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Contraseña" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.TDia" Member="TDia">
     <Type Name="TDia">
       <Column Name="CodDia" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Dia" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Association Name="TDia_TPrincipal" Member="TPrincipal" ThisKey="CodDia" OtherKey="CodDia" Type="TPrincipal" />
+      <Association Name="TDia_TPrincipal1" Member="TPrincipal1" ThisKey="CodDia" OtherKey="CodDia" Type="TPrincipal1" />
     </Type>
   </Table>
   <Table Name="dbo.TDocente" Member="TDocente">
@@ -35,6 +48,7 @@
       <Column Name="CodDocente" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="CodAsignatura" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Association Name="TDocente_Asignatura_TPrincipal" Member="TPrincipal" ThisKey="CodDocente_Asignatura" OtherKey="CodDocente_Asignatura" Type="TPrincipal" />
+      <Association Name="TDocente_Asignatura_TPrincipal1" Member="TPrincipal1" ThisKey="CodDocente_Asignatura" OtherKey="CodDocente_Asignatura" Type="TPrincipal1" />
       <Association Name="TAsignatura_TDocente_Asignatura" Member="TAsignatura" ThisKey="CodAsignatura" OtherKey="CodAsignatura" Type="TAsignatura" IsForeignKey="true" />
       <Association Name="TDocente_TDocente_Asignatura" Member="TDocente" ThisKey="CodDocente" OtherKey="CodDocente" Type="TDocente" IsForeignKey="true" />
     </Type>
@@ -44,6 +58,7 @@
       <Column Name="CodHorario" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Horario" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Association Name="THorario_TPrincipal" Member="TPrincipal" ThisKey="CodHorario" OtherKey="CodHorario" Type="TPrincipal" />
+      <Association Name="THorario_TPrincipal1" Member="TPrincipal1" ThisKey="CodHorario" OtherKey="CodHorario" Type="TPrincipal1" />
     </Type>
   </Table>
   <Table Name="dbo.TLaboratorio" Member="TLaboratorio">
@@ -51,18 +66,46 @@
       <Column Name="CodLaboratorio" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="NroLaboratorio" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Association Name="TLaboratorio_TPrincipal" Member="TPrincipal" ThisKey="CodLaboratorio" OtherKey="CodLaboratorio" Type="TPrincipal" />
+      <Association Name="TLaboratorio_TPrincipal1" Member="TPrincipal1" ThisKey="CodLaboratorio" OtherKey="CodLaboratorio" Type="TPrincipal1" />
     </Type>
   </Table>
-  <Table Name="dbo.TPrincipal" Member="TPrincipal">
-    <Type Name="TPrincipal">
+  <Table Name="dbo.TPerfil" Member="TPerfil">
+    <Type Name="TPerfil">
+      <Column Name="CodPerfil" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Perfil" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TPerfil_TPerfil_Usuario" Member="TPerfil_Usuario" ThisKey="CodPerfil" OtherKey="CodPerfil" Type="TPerfil_Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TPerfil_Usuario" Member="TPerfil_Usuario">
+    <Type Name="TPerfil_Usuario">
+      <Column Name="CodPerfil" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Association Name="TPerfil_TPerfil_Usuario" Member="TPerfil" ThisKey="CodPerfil" OtherKey="CodPerfil" Type="TPerfil" IsForeignKey="true" />
+      <Association Name="TUsuario_TPerfil_Usuario" Member="TUsuario" ThisKey="CodUsuario" OtherKey="IdUsuario" Type="TUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TPrincipal" Member="TPrincipal1">
+    <Type Name="TPrincipal1">
       <Column Name="CodDocente_Asignatura" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Column Name="CodLaboratorio" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Column Name="CodDia" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Column Name="CodHorario" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Association Name="TDia_TPrincipal" Member="TDia" ThisKey="CodDia" OtherKey="CodDia" Type="TDia" IsForeignKey="true" />
-      <Association Name="TDocente_Asignatura_TPrincipal" Member="TDocente_Asignatura" ThisKey="CodDocente_Asignatura" OtherKey="CodDocente_Asignatura" Type="TDocente_Asignatura" IsForeignKey="true" />
-      <Association Name="THorario_TPrincipal" Member="THorario" ThisKey="CodHorario" OtherKey="CodHorario" Type="THorario" IsForeignKey="true" />
-      <Association Name="TLaboratorio_TPrincipal" Member="TLaboratorio" ThisKey="CodLaboratorio" OtherKey="CodLaboratorio" Type="TLaboratorio" IsForeignKey="true" />
+      <Association Name="TDia_TPrincipal1" Member="TDia" ThisKey="CodDia" OtherKey="CodDia" Type="TDia" IsForeignKey="true" />
+      <Association Name="TDocente_Asignatura_TPrincipal1" Member="TDocente_Asignatura" ThisKey="CodDocente_Asignatura" OtherKey="CodDocente_Asignatura" Type="TDocente_Asignatura" IsForeignKey="true" />
+      <Association Name="THorario_TPrincipal1" Member="THorario" ThisKey="CodHorario" OtherKey="CodHorario" Type="THorario" IsForeignKey="true" />
+      <Association Name="TLaboratorio_TPrincipal1" Member="TLaboratorio" ThisKey="CodLaboratorio" OtherKey="CodLaboratorio" Type="TLaboratorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TUsuario" Member="TUsuario">
+    <Type Name="TUsuario">
+      <Column Name="IdUsuario" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido_Paterno" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido_Materno" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Dni" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="TUsuario_TPerfil_Usuario" Member="TPerfil_Usuario" ThisKey="IdUsuario" OtherKey="CodUsuario" Type="TPerfil_Usuario" />
     </Type>
   </Table>
   <Function Name="dbo.spuTDocente_Actualizar" Method="spuTDocente_Actualizar">
@@ -83,6 +126,60 @@
     <Parameter Name="CodDocente" Parameter="codDocente" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(100)" />
     <ElementType Name="spuTDocente_InsertarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(31) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTAsignatura_Actualizar" Method="spuTAsignatura_Actualizar">
+    <Parameter Name="CodAsignatura" Parameter="codAsignatura" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="NombreAsignatura" Parameter="nombreAsignatura" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Creditos" Parameter="creditos" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="spuTAsignatura_ActualizarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(33) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTAsignatura_Insertar" Method="spuTAsignatura_Insertar">
+    <Parameter Name="CodAsignatura" Parameter="codAsignatura" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="NombreAsignatura" Parameter="nombreAsignatura" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Creditos" Parameter="creditos" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="spuTAsignatura_InsertarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(31) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTDocenteAsignatura_Actualizar" Method="spuTDocenteAsignatura_Actualizar">
+    <Parameter Name="CodDocente_Asignatura" Parameter="codDocente_Asignatura" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="CodDocente" Parameter="codDocente" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="CodAsignatura" Parameter="codAsignatura" Type="System.String" DbType="VarChar(12)" />
+    <ElementType Name="spuTDocenteAsignatura_ActualizarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(31) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTDocenteAsignatura_Insertar" Method="spuTDocenteAsignatura_Insertar">
+    <Parameter Name="CodDocente_Asignatura" Parameter="codDocente_Asignatura" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="CodDocente" Parameter="codDocente" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="CodAsignatura" Parameter="codAsignatura" Type="System.String" DbType="VarChar(12)" />
+    <ElementType Name="spuTDocenteAsignatura_InsertarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(31) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTLaboratorio_Actualizar" Method="spuTLaboratorio_Actualizar">
+    <Parameter Name="CodLaboratorio" Parameter="codLaboratorio" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="NroLaboratorio" Parameter="nroLaboratorio" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="spuTLaboratorio_ActualizarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(33) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTLaboratorio_Insertar" Method="spuTLaboratorio_Insertar">
+    <Parameter Name="CodLaboratorio" Parameter="codLaboratorio" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="NroLaboratorio" Parameter="nroLaboratorio" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="spuTLaboratorio_InsertarResult">
       <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Mensaje" Type="System.String" DbType="VarChar(31) NOT NULL" CanBeNull="false" />
     </ElementType>

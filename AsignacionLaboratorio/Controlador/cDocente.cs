@@ -12,5 +12,10 @@ namespace Controlador
     {
         
         public cDocente() { }
+
+        public void Insertar(string Cod,string Nombre)
+        {
+            dc.spuTDocente_Insertar(Cod,Nombre);
+        }
     }
 }

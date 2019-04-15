@@ -36,6 +36,14 @@ Dni varchar(10) not null,
 Primary key(IdUsuario)
 )
 go
+
+CREATE TABLE TUsuario1(
+Usuario varchar(50) not null,
+Contraseña varchar(100)not null
+Primary key(Usuario)
+)
+go
+
 CREATE TABLE TDocente(
 CodDocente TCodDocente not null,
 Nombre varchar(100)not null,
@@ -101,3 +109,15 @@ Foreign key(CodPerfil) references TPerfil(CodPerfil),
 Foreign key(CodUsuario) references TUsuario(IdUsuario)
 )
 go
+
+
+insert into TUsuario1 values('U001','1234')
+insert into TUsuario1 values('U002','1234')
+
+insert into THorario values('H001','7-9')
+insert into THorario values('H002','7-9')
+insert into THorario values('H003','7-9')
+insert into THorario values('H004','7-9')
+
+select* from THorario
+select* from TUsuario1

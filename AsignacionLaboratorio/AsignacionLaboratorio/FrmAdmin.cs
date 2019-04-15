@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace AsignacionLaboratorio
 {
-    public partial class FrmPadre : Form
+    public partial class FrmAdmin : Form
     {
-        public FrmPadre()
+        public FrmAdmin()
         {
             InitializeComponent();
+        }
+
+        private void AsignarLaboratorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                (new FrmAsignacion()).Show();
+            }
+            catch (Exception ex){}
         }
     }
 }

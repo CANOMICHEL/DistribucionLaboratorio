@@ -86,7 +86,6 @@ F:\AsignacionLaboratorio2\AsignacionLaboratorio\bin\Debug\Modelo.dll.config
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csprojAssemblyReference.cache
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmAsignacion.resources
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmCursosLab.resources
-F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmPadre.resources
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.Inicio.resources
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.Properties.Resources.resources
 F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csproj.GenerateResource.cache
@@ -105,7 +104,6 @@ E:\AsignacionLaboratorio2\AsignacionLaboratorio\bin\Debug\Modelo.dll.config
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csprojAssemblyReference.cache
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmAsignacion.resources
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmCursosLab.resources
-E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmPadre.resources
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.Inicio.resources
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.Properties.Resources.resources
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csproj.GenerateResource.cache
@@ -113,3 +111,4 @@ E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csproj.CoreCompi
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\Vista.csproj.CopyComplete
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.exe
 E:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.pdb
+F:\AsignacionLaboratorio2\AsignacionLaboratorio\obj\Debug\AsignacionLaboratorio.FrmAdmin.resources

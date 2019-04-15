@@ -20,9 +20,9 @@ namespace Modelo
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "(new cLectorXml()).cadenaConexion()")]
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BDOrganizacionLaboratoriosDAI")]
 	public partial class conexionDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,6 +30,9 @@ namespace Modelo
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
+    partial void InsertTUsuario1(TUsuario1 instance);
+    partial void UpdateTUsuario1(TUsuario1 instance);
+    partial void DeleteTUsuario1(TUsuario1 instance);
     partial void InsertTAsignatura(TAsignatura instance);
     partial void UpdateTAsignatura(TAsignatura instance);
     partial void DeleteTAsignatura(TAsignatura instance);
@@ -48,10 +51,16 @@ namespace Modelo
     partial void InsertTLaboratorio(TLaboratorio instance);
     partial void UpdateTLaboratorio(TLaboratorio instance);
     partial void DeleteTLaboratorio(TLaboratorio instance);
+    partial void InsertTPerfil(TPerfil instance);
+    partial void UpdateTPerfil(TPerfil instance);
+    partial void DeleteTPerfil(TPerfil instance);
+    partial void InsertTUsuario(TUsuario instance);
+    partial void UpdateTUsuario(TUsuario instance);
+    partial void DeleteTUsuario(TUsuario instance);
     #endregion
 		
 		public conexionDataContext() : 
-				base(global::Modelo.Properties.Settings.Default.BDOrganizacionLaboratoriosDAIConnectionString, mappingSource)
+				base(global::Modelo.Properties.Settings.Default.BDOrganizacionLaboratoriosDAIConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -80,19 +89,27 @@ namespace Modelo
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<TPrincipal> TPrincipal
+		{
+			get
+			{
+				return this.GetTable<TPrincipal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TUsuario1> TUsuario1
+		{
+			get
+			{
+				return this.GetTable<TUsuario1>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TAsignatura> TAsignatura
 		{
 			get
 			{
 				return this.GetTable<TAsignatura>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TUsuario> TUsuario
-		{
-			get
-			{
-				return this.GetTable<TUsuario>();
 			}
 		}
 		
@@ -136,11 +153,35 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<TPrincipal> TPrincipal
+		public System.Data.Linq.Table<TPerfil> TPerfil
 		{
 			get
 			{
-				return this.GetTable<TPrincipal>();
+				return this.GetTable<TPerfil>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TPerfil_Usuario> TPerfil_Usuario
+		{
+			get
+			{
+				return this.GetTable<TPerfil_Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TPrincipal1> TPrincipal1
+		{
+			get
+			{
+				return this.GetTable<TPrincipal1>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TUsuario> TUsuario
+		{
+			get
+			{
+				return this.GetTable<TUsuario>();
 			}
 		}
 		
@@ -163,6 +204,215 @@ namespace Modelo
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente, nombre);
 			return ((ISingleResult<spuTDocente_InsertarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTAsignatura_Actualizar")]
+		public ISingleResult<spuTAsignatura_ActualizarResult> spuTAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria);
+			return ((ISingleResult<spuTAsignatura_ActualizarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTAsignatura_Insertar")]
+		public ISingleResult<spuTAsignatura_InsertarResult> spuTAsignatura_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria);
+			return ((ISingleResult<spuTAsignatura_InsertarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocenteAsignatura_Actualizar")]
+		public ISingleResult<spuTDocenteAsignatura_ActualizarResult> spuTDocenteAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente_Asignatura", DbType="VarChar(12)")] string codDocente_Asignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente_Asignatura, codDocente, codAsignatura);
+			return ((ISingleResult<spuTDocenteAsignatura_ActualizarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocenteAsignatura_Insertar")]
+		public ISingleResult<spuTDocenteAsignatura_InsertarResult> spuTDocenteAsignatura_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente_Asignatura", DbType="VarChar(12)")] string codDocente_Asignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente_Asignatura, codDocente, codAsignatura);
+			return ((ISingleResult<spuTDocenteAsignatura_InsertarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Actualizar")]
+		public ISingleResult<spuTLaboratorio_ActualizarResult> spuTLaboratorio_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio);
+			return ((ISingleResult<spuTLaboratorio_ActualizarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Insertar")]
+		public ISingleResult<spuTLaboratorio_InsertarResult> spuTLaboratorio_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio);
+			return ((ISingleResult<spuTLaboratorio_InsertarResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPrincipal")]
+	public partial class TPrincipal
+	{
+		
+		private string _CodDocente_Asignatura;
+		
+		private string _CodLaboratorio;
+		
+		private string _CodDia;
+		
+		private string _CodHorario;
+		
+		public TPrincipal()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodDocente_Asignatura
+		{
+			get
+			{
+				return this._CodDocente_Asignatura;
+			}
+			set
+			{
+				if ((this._CodDocente_Asignatura != value))
+				{
+					this._CodDocente_Asignatura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodLaboratorio
+		{
+			get
+			{
+				return this._CodLaboratorio;
+			}
+			set
+			{
+				if ((this._CodLaboratorio != value))
+				{
+					this._CodLaboratorio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodDia
+		{
+			get
+			{
+				return this._CodDia;
+			}
+			set
+			{
+				if ((this._CodDia != value))
+				{
+					this._CodDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodHorario
+		{
+			get
+			{
+				return this._CodHorario;
+			}
+			set
+			{
+				if ((this._CodHorario != value))
+				{
+					this._CodHorario = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario1")]
+	public partial class TUsuario1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Usuario;
+		
+		private string _Contraseña;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUsuarioChanging(string value);
+    partial void OnUsuarioChanged();
+    partial void OnContraseñaChanging(string value);
+    partial void OnContraseñaChanged();
+    #endregion
+		
+		public TUsuario1()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this.OnUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Usuario = value;
+					this.SendPropertyChanged("Usuario");
+					this.OnUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this.OnContraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Contraseña = value;
+					this.SendPropertyChanged("Contraseña");
+					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -325,51 +575,6 @@ namespace Modelo
 		{
 			this.SendPropertyChanging();
 			entity.TAsignatura = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario")]
-	public partial class TUsuario
-	{
-		
-		private string _Usuario;
-		
-		private string _Contraseña;
-		
-		public TUsuario()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Usuario
-		{
-			get
-			{
-				return this._Usuario;
-			}
-			set
-			{
-				if ((this._Usuario != value))
-				{
-					this._Usuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Contraseña
-		{
-			get
-			{
-				return this._Contraseña;
-			}
-			set
-			{
-				if ((this._Contraseña != value))
-				{
-					this._Contraseña = value;
-				}
-			}
 		}
 	}
 	
@@ -937,8 +1142,139 @@ namespace Modelo
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPerfil")]
+	public partial class TPerfil : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodPerfil;
+		
+		private string _Perfil;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodPerfilChanging(string value);
+    partial void OnCodPerfilChanged();
+    partial void OnPerfilChanging(string value);
+    partial void OnPerfilChanged();
+    #endregion
+		
+		public TPerfil()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPerfil", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodPerfil
+		{
+			get
+			{
+				return this._CodPerfil;
+			}
+			set
+			{
+				if ((this._CodPerfil != value))
+				{
+					this.OnCodPerfilChanging(value);
+					this.SendPropertyChanging();
+					this._CodPerfil = value;
+					this.SendPropertyChanged("CodPerfil");
+					this.OnCodPerfilChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perfil", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Perfil
+		{
+			get
+			{
+				return this._Perfil;
+			}
+			set
+			{
+				if ((this._Perfil != value))
+				{
+					this.OnPerfilChanging(value);
+					this.SendPropertyChanging();
+					this._Perfil = value;
+					this.SendPropertyChanged("Perfil");
+					this.OnPerfilChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPerfil_Usuario")]
+	public partial class TPerfil_Usuario
+	{
+		
+		private string _CodPerfil;
+		
+		private string _CodUsuario;
+		
+		public TPerfil_Usuario()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPerfil", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodPerfil
+		{
+			get
+			{
+				return this._CodPerfil;
+			}
+			set
+			{
+				if ((this._CodPerfil != value))
+				{
+					this._CodPerfil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodUsuario", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string CodUsuario
+		{
+			get
+			{
+				return this._CodUsuario;
+			}
+			set
+			{
+				if ((this._CodUsuario != value))
+				{
+					this._CodUsuario = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPrincipal")]
-	public partial class TPrincipal
+	public partial class TPrincipal1
 	{
 		
 		private string _CodDocente_Asignatura;
@@ -949,7 +1285,7 @@ namespace Modelo
 		
 		private string _CodHorario;
 		
-		public TPrincipal()
+		public TPrincipal1()
 		{
 		}
 		
@@ -1014,6 +1350,212 @@ namespace Modelo
 				{
 					this._CodHorario = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario")]
+	public partial class TUsuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IdUsuario;
+		
+		private string _Usuario;
+		
+		private string _Contraseña;
+		
+		private string _Nombre;
+		
+		private string _Apellido_Paterno;
+		
+		private string _Apellido_Materno;
+		
+		private string _Dni;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdUsuarioChanging(string value);
+    partial void OnIdUsuarioChanged();
+    partial void OnUsuarioChanging(string value);
+    partial void OnUsuarioChanged();
+    partial void OnContraseñaChanging(string value);
+    partial void OnContraseñaChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnApellido_PaternoChanging(string value);
+    partial void OnApellido_PaternoChanged();
+    partial void OnApellido_MaternoChanging(string value);
+    partial void OnApellido_MaternoChanged();
+    partial void OnDniChanging(string value);
+    partial void OnDniChanged();
+    #endregion
+		
+		public TUsuario()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this.OnIdUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._IdUsuario = value;
+					this.SendPropertyChanged("IdUsuario");
+					this.OnIdUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this.OnUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Usuario = value;
+					this.SendPropertyChanged("Usuario");
+					this.OnUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this.OnContraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Contraseña = value;
+					this.SendPropertyChanged("Contraseña");
+					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Paterno", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Apellido_Paterno
+		{
+			get
+			{
+				return this._Apellido_Paterno;
+			}
+			set
+			{
+				if ((this._Apellido_Paterno != value))
+				{
+					this.OnApellido_PaternoChanging(value);
+					this.SendPropertyChanging();
+					this._Apellido_Paterno = value;
+					this.SendPropertyChanged("Apellido_Paterno");
+					this.OnApellido_PaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Materno", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Apellido_Materno
+		{
+			get
+			{
+				return this._Apellido_Materno;
+			}
+			set
+			{
+				if ((this._Apellido_Materno != value))
+				{
+					this.OnApellido_MaternoChanging(value);
+					this.SendPropertyChanging();
+					this._Apellido_Materno = value;
+					this.SendPropertyChanged("Apellido_Materno");
+					this.OnApellido_MaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dni", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Dni
+		{
+			get
+			{
+				return this._Dni;
+			}
+			set
+			{
+				if ((this._Dni != value))
+				{
+					this.OnDniChanging(value);
+					this.SendPropertyChanging();
+					this._Dni = value;
+					this.SendPropertyChanged("Dni");
+					this.OnDniChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1114,6 +1656,270 @@ namespace Modelo
 		private string _Mensaje;
 		
 		public spuTDocente_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTAsignatura_ActualizarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTAsignatura_ActualizarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(33) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTAsignatura_InsertarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTAsignatura_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTDocenteAsignatura_ActualizarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTDocenteAsignatura_ActualizarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTDocenteAsignatura_InsertarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTDocenteAsignatura_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTLaboratorio_ActualizarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTLaboratorio_ActualizarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(33) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTLaboratorio_InsertarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTLaboratorio_InsertarResult()
 		{
 		}
 		

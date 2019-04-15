@@ -52,19 +52,21 @@ namespace AsignacionLaboratorio
 
         private void adminnistradorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PanelLogin.Enabled = true;
+            PanelLogin.Visible = true;
         }
 
         private void BtnAcceder_Click(object sender, EventArgs e)
         {
             cUsuario user = new cUsuario();
+
             if (user.ValidarUsuario(tbUser.Text,tbPassword.Text))
             {
-                (new FrmAsignacion()).Show();
+                (new FrmAdmin()).Show();
             }
             else
             {
                 MessageBox.Show("ERROR DE AUTENTICACIÓN\nEl nombre de usuario o contraseña no son Válidos");
+         
             }
 
             

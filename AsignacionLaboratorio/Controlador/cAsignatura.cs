@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Modelo;
+using System.Windows.Forms;
 namespace Controlador
 {
     
@@ -13,6 +14,9 @@ namespace Controlador
         public cAsignatura() { }
 
 
-
+        public void TAsignatura_dgv(DataGridView dgv)
+        {
+            dgv.DataSource = dc.TAsignatura;
+        }
     }
 }

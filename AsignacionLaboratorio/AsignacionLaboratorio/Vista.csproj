@@ -44,23 +44,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdmin.Designer.cs">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAsignacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAsignacion.Designer.cs">
       <DependentUpon>FrmAsignacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAñadirUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAñadirUsuario.Designer.cs">
+      <DependentUpon>FrmAñadirUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCursosLab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCursosLab.Designer.cs">
       <DependentUpon>FrmCursosLab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPadre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPadre.Designer.cs">
-      <DependentUpon>FrmPadre.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -70,14 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAdmin.resx">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAsignacion.resx">
       <DependentUpon>FrmAsignacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCursosLab.resx">
       <DependentUpon>FrmCursosLab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPadre.resx">
-      <DependentUpon>FrmPadre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

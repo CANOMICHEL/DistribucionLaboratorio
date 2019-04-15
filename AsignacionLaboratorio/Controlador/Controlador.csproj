@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,12 @@
     <Compile Include="cHorario.cs" />
     <Compile Include="cLaboratorio.cs" />
     <Compile Include="cUsuario.cs" />
+    <Compile Include="FrmPadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPadre.Designer.cs">
+      <DependentUpon>FrmPadre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +64,11 @@
       <Project>{e4485fb9-5dde-497a-b781-a52543a32e95}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmPadre.resx">
+      <DependentUpon>FrmPadre.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

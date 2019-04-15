@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controlador;
 
 namespace AsignacionLaboratorio
 {
@@ -19,5 +20,21 @@ namespace AsignacionLaboratorio
         #region Metodos
         //private void 
         #endregion Metodos
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FrmAsignacion_Load(object sender, EventArgs e)
+        {
+            cLaboratorio Lab = new cLaboratorio();
+            Lab.TLaboratorio(dgvDatosHorario);
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
