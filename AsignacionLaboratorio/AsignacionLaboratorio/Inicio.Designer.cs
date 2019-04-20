@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accederToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminnistradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosPorLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.laboratoriosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +45,6 @@
             this.tbUser = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.PanelLogin.SuspendLayout();
@@ -69,8 +68,7 @@
             // 
             this.accederToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminnistradorToolStripMenuItem,
-            this.salirToolStripMenuItem1,
-            this.salirToolStripMenuItem2});
+            this.salirToolStripMenuItem1});
             this.accederToolStripMenuItem.Name = "accederToolStripMenuItem";
             this.accederToolStripMenuItem.Size = new System.Drawing.Size(77, 25);
             this.accederToolStripMenuItem.Text = "Acceder";
@@ -81,6 +79,13 @@
             this.adminnistradorToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.adminnistradorToolStripMenuItem.Text = "Administrador";
             this.adminnistradorToolStripMenuItem.Click += new System.EventHandler(this.adminnistradorToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem1
+            // 
+            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.salirToolStripMenuItem1.Text = "Salir";
+            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.SalirToolStripMenuItem1_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -216,18 +221,6 @@
             this.label1.Text = "_____________________________________";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // salirToolStripMenuItem1
-            // 
-            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
-            this.salirToolStripMenuItem1.Text = "Mantenimiento";
-            // 
-            // salirToolStripMenuItem2
-            // 
-            this.salirToolStripMenuItem2.Name = "salirToolStripMenuItem2";
-            this.salirToolStripMenuItem2.Size = new System.Drawing.Size(186, 26);
-            this.salirToolStripMenuItem2.Text = "Salir";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
@@ -281,7 +274,6 @@
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem2;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

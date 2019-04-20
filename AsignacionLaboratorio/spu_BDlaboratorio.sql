@@ -269,3 +269,54 @@ end
 go
 
 
+---TUsuario---
+--------------
+if exists (select * from dbo.sysobjects where name = 'spuTUsuario_Insertar')
+	drop procedure spuTUsuario_Insertar
+go
+create procedure spuTUsuario_Insertar
+	@Contraseña varchar(10),
+	@Nombre varchar (50),
+	@Apellido_Paterno varchar(50),
+	@Apellido_Materno varchar (50),
+	@Dni_Usuario varchar(8)
+as
+begin
+if(@Dni_Usuario!='' and not exists(select* from TUsuario where Dni_Usuario=@Dni_Usuario))
+begin
+	if(@Nombre!='')
+	begin
+		if(@Apellido_Paterno!='')
+		begin
+			if(@Apellido_Materno!='')
+			begin
+				insert into TUsuario values(@Contraseña, @Nombre, @Apellido_Paterno, @Apellido_Materno, @Dni_Usuario)
+				select CodError = 0
+			end
+		end
+		else
+			select CodError = 1
+	end
+	else
+		select CodError = 1
+end
+else
+	select CodError = 1
+end
+go
+
+--buscar Usuario
+if exists (select * from dbo.sysobjects where name = 'spuTUsuario_Buscar')
+	drop procedure spuTUsuario_Buscar
+go
+create procedure spuTUsuario_Buscar
+	@Dni_Usuario varchar(8)
+as
+begin
+if(@Dni_Usuario!='')
+	select* from TUsuario where Dni_Usuario = @Dni_Usuario
+end
+go
+
+exec spuTUsuario_Buscar '75684458'
+

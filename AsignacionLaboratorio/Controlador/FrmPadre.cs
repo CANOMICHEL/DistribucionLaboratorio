@@ -20,8 +20,5 @@ namespace Controlador
         {
             InitializeComponent();
         }
-
-        public cDocente ADocente { get => aDocente; set => aDocente = value; }
-        public cUsuario AUsuario { get => aUsuario; set => aUsuario = value; }
     }
 }

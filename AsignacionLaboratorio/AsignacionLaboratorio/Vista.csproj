@@ -82,6 +82,9 @@
     <EmbeddedResource Include="FrmAsignacion.resx">
       <DependentUpon>FrmAsignacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAñadirUsuario.resx">
+      <DependentUpon>FrmAñadirUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCursosLab.resx">
       <DependentUpon>FrmCursosLab.cs</DependentUpon>
     </EmbeddedResource>

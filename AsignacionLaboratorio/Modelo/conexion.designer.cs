@@ -30,9 +30,9 @@ namespace Modelo
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertTUsuario1(TUsuario1 instance);
-    partial void UpdateTUsuario1(TUsuario1 instance);
-    partial void DeleteTUsuario1(TUsuario1 instance);
+    partial void InsertTUsuario(TUsuario instance);
+    partial void UpdateTUsuario(TUsuario instance);
+    partial void DeleteTUsuario(TUsuario instance);
     partial void InsertTAsignatura(TAsignatura instance);
     partial void UpdateTAsignatura(TAsignatura instance);
     partial void DeleteTAsignatura(TAsignatura instance);
@@ -48,15 +48,6 @@ namespace Modelo
     partial void InsertTHorario(THorario instance);
     partial void UpdateTHorario(THorario instance);
     partial void DeleteTHorario(THorario instance);
-    partial void InsertTLaboratorio(TLaboratorio instance);
-    partial void UpdateTLaboratorio(TLaboratorio instance);
-    partial void DeleteTLaboratorio(TLaboratorio instance);
-    partial void InsertTPerfil(TPerfil instance);
-    partial void UpdateTPerfil(TPerfil instance);
-    partial void DeleteTPerfil(TPerfil instance);
-    partial void InsertTUsuario(TUsuario instance);
-    partial void UpdateTUsuario(TUsuario instance);
-    partial void DeleteTUsuario(TUsuario instance);
     #endregion
 		
 		public conexionDataContext() : 
@@ -89,19 +80,11 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TPrincipal> TPrincipal
+		public System.Data.Linq.Table<TUsuario> TUsuario
 		{
 			get
 			{
-				return this.GetTable<TPrincipal>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TUsuario1> TUsuario1
-		{
-			get
-			{
-				return this.GetTable<TUsuario1>();
+				return this.GetTable<TUsuario>();
 			}
 		}
 		
@@ -145,65 +128,18 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<TLaboratorio> TLaboratorio
+		public System.Data.Linq.Table<TPrincipal> TPrincipal
 		{
 			get
 			{
-				return this.GetTable<TLaboratorio>();
+				return this.GetTable<TPrincipal>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TPerfil> TPerfil
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Insertar", IsComposable=true)]
+		public object spuTLaboratorio_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
 		{
-			get
-			{
-				return this.GetTable<TPerfil>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TPerfil_Usuario> TPerfil_Usuario
-		{
-			get
-			{
-				return this.GetTable<TPerfil_Usuario>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TPrincipal1> TPrincipal1
-		{
-			get
-			{
-				return this.GetTable<TPrincipal1>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TUsuario> TUsuario
-		{
-			get
-			{
-				return this.GetTable<TUsuario>();
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Actualizar")]
-		public ISingleResult<spuTDocente_ActualizarResult> spuTDocente_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente, nombre);
-			return ((ISingleResult<spuTDocente_ActualizarResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Listar")]
-		public ISingleResult<spuTDocente_ListarResult> spuTDocente_Listar()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<spuTDocente_ListarResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Insertar")]
-		public ISingleResult<spuTDocente_InsertarResult> spuTDocente_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente, nombre);
-			return ((ISingleResult<spuTDocente_InsertarResult>)(result.ReturnValue));
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTAsignatura_Actualizar")]
@@ -220,6 +156,27 @@ namespace Modelo
 			return ((ISingleResult<spuTAsignatura_InsertarResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Actualizar")]
+		public ISingleResult<spuTDocente_ActualizarResult> spuTDocente_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente, nombre);
+			return ((ISingleResult<spuTDocente_ActualizarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Insertar")]
+		public ISingleResult<spuTDocente_InsertarResult> spuTDocente_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente, nombre);
+			return ((ISingleResult<spuTDocente_InsertarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocente_Listar")]
+		public ISingleResult<spuTDocente_ListarResult> spuTDocente_Listar()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<spuTDocente_ListarResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocenteAsignatura_Actualizar")]
 		public ISingleResult<spuTDocenteAsignatura_ActualizarResult> spuTDocenteAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente_Asignatura", DbType="VarChar(12)")] string codDocente_Asignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura)
 		{
@@ -234,148 +191,65 @@ namespace Modelo
 			return ((ISingleResult<spuTDocenteAsignatura_InsertarResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Actualizar")]
-		public ISingleResult<spuTLaboratorio_ActualizarResult> spuTLaboratorio_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Actualizar", IsComposable=true)]
+		public object spuTLaboratorio_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio);
-			return ((ISingleResult<spuTLaboratorio_ActualizarResult>)(result.ReturnValue));
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Insertar")]
-		public ISingleResult<spuTLaboratorio_InsertarResult> spuTLaboratorio_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Buscar")]
+		public ISingleResult<spuTUsuario_BuscarResult> spuTUsuario_Buscar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio);
-			return ((ISingleResult<spuTLaboratorio_InsertarResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPrincipal")]
-	public partial class TPrincipal
-	{
-		
-		private string _CodDocente_Asignatura;
-		
-		private string _CodLaboratorio;
-		
-		private string _CodDia;
-		
-		private string _CodHorario;
-		
-		public TPrincipal()
-		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dni_Usuario);
+			return ((ISingleResult<spuTUsuario_BuscarResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodDocente_Asignatura
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Insertar")]
+		public ISingleResult<spuTUsuario_InsertarResult> spuTUsuario_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario)
 		{
-			get
-			{
-				return this._CodDocente_Asignatura;
-			}
-			set
-			{
-				if ((this._CodDocente_Asignatura != value))
-				{
-					this._CodDocente_Asignatura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodLaboratorio
-		{
-			get
-			{
-				return this._CodLaboratorio;
-			}
-			set
-			{
-				if ((this._CodLaboratorio != value))
-				{
-					this._CodLaboratorio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodDia
-		{
-			get
-			{
-				return this._CodDia;
-			}
-			set
-			{
-				if ((this._CodDia != value))
-				{
-					this._CodDia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodHorario
-		{
-			get
-			{
-				return this._CodHorario;
-			}
-			set
-			{
-				if ((this._CodHorario != value))
-				{
-					this._CodHorario = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario);
+			return ((ISingleResult<spuTUsuario_InsertarResult>)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario1")]
-	public partial class TUsuario1 : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario")]
+	public partial class TUsuario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Usuario;
-		
 		private string _Contraseña;
+		
+		private string _Nombre;
+		
+		private string _Apellido_Paterno;
+		
+		private string _Apellido_Materno;
+		
+		private string _Dni_Usuario;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnUsuarioChanging(string value);
-    partial void OnUsuarioChanged();
     partial void OnContraseñaChanging(string value);
     partial void OnContraseñaChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnApellido_PaternoChanging(string value);
+    partial void OnApellido_PaternoChanged();
+    partial void OnApellido_MaternoChanging(string value);
+    partial void OnApellido_MaternoChanged();
+    partial void OnDni_UsuarioChanging(string value);
+    partial void OnDni_UsuarioChanged();
     #endregion
 		
-		public TUsuario1()
+		public TUsuario()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Usuario
-		{
-			get
-			{
-				return this._Usuario;
-			}
-			set
-			{
-				if ((this._Usuario != value))
-				{
-					this.OnUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._Usuario = value;
-					this.SendPropertyChanged("Usuario");
-					this.OnUsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Contraseña
 		{
 			get
@@ -391,6 +265,86 @@ namespace Modelo
 					this._Contraseña = value;
 					this.SendPropertyChanged("Contraseña");
 					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Paterno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido_Paterno
+		{
+			get
+			{
+				return this._Apellido_Paterno;
+			}
+			set
+			{
+				if ((this._Apellido_Paterno != value))
+				{
+					this.OnApellido_PaternoChanging(value);
+					this.SendPropertyChanging();
+					this._Apellido_Paterno = value;
+					this.SendPropertyChanged("Apellido_Paterno");
+					this.OnApellido_PaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Materno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido_Materno
+		{
+			get
+			{
+				return this._Apellido_Materno;
+			}
+			set
+			{
+				if ((this._Apellido_Materno != value))
+				{
+					this.OnApellido_MaternoChanging(value);
+					this.SendPropertyChanging();
+					this._Apellido_Materno = value;
+					this.SendPropertyChanged("Apellido_Materno");
+					this.OnApellido_MaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dni_Usuario", DbType="VarChar(8) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Dni_Usuario
+		{
+			get
+			{
+				return this._Dni_Usuario;
+			}
+			set
+			{
+				if ((this._Dni_Usuario != value))
+				{
+					this.OnDni_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Dni_Usuario = value;
+					this.SendPropertyChanged("Dni_Usuario");
+					this.OnDni_UsuarioChanged();
 				}
 			}
 		}
@@ -452,7 +406,7 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodAsignatura
 		{
 			get
@@ -492,7 +446,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Creditos", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Creditos", DbType="VarChar(2)")]
 		public string Creditos
 		{
 			get
@@ -512,7 +466,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(3)")]
 		public string Categoria
 		{
 			get
@@ -603,7 +557,7 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodDia
 		{
 			get
@@ -623,7 +577,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dia", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dia", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Dia
 		{
 			get
@@ -692,7 +646,7 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(8) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodDocente
 		{
 			get
@@ -712,7 +666,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Nombre
 		{
 			get
@@ -813,7 +767,7 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodDocente_Asignatura
 		{
 			get
@@ -833,7 +787,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
 		public string CodDocente
 		{
 			get
@@ -857,7 +811,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
 		public string CodAsignatura
 		{
 			get
@@ -995,7 +949,7 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodHorario
 		{
 			get
@@ -1015,7 +969,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horario", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horario", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
 		public string Horario
 		{
 			get
@@ -1056,225 +1010,8 @@ namespace Modelo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TLaboratorio")]
-	public partial class TLaboratorio : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CodLaboratorio;
-		
-		private string _NroLaboratorio;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodLaboratorioChanging(string value);
-    partial void OnCodLaboratorioChanged();
-    partial void OnNroLaboratorioChanging(string value);
-    partial void OnNroLaboratorioChanged();
-    #endregion
-		
-		public TLaboratorio()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodLaboratorio
-		{
-			get
-			{
-				return this._CodLaboratorio;
-			}
-			set
-			{
-				if ((this._CodLaboratorio != value))
-				{
-					this.OnCodLaboratorioChanging(value);
-					this.SendPropertyChanging();
-					this._CodLaboratorio = value;
-					this.SendPropertyChanged("CodLaboratorio");
-					this.OnCodLaboratorioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NroLaboratorio", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string NroLaboratorio
-		{
-			get
-			{
-				return this._NroLaboratorio;
-			}
-			set
-			{
-				if ((this._NroLaboratorio != value))
-				{
-					this.OnNroLaboratorioChanging(value);
-					this.SendPropertyChanging();
-					this._NroLaboratorio = value;
-					this.SendPropertyChanged("NroLaboratorio");
-					this.OnNroLaboratorioChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPerfil")]
-	public partial class TPerfil : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CodPerfil;
-		
-		private string _Perfil;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodPerfilChanging(string value);
-    partial void OnCodPerfilChanged();
-    partial void OnPerfilChanging(string value);
-    partial void OnPerfilChanged();
-    #endregion
-		
-		public TPerfil()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPerfil", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodPerfil
-		{
-			get
-			{
-				return this._CodPerfil;
-			}
-			set
-			{
-				if ((this._CodPerfil != value))
-				{
-					this.OnCodPerfilChanging(value);
-					this.SendPropertyChanging();
-					this._CodPerfil = value;
-					this.SendPropertyChanged("CodPerfil");
-					this.OnCodPerfilChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perfil", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Perfil
-		{
-			get
-			{
-				return this._Perfil;
-			}
-			set
-			{
-				if ((this._Perfil != value))
-				{
-					this.OnPerfilChanging(value);
-					this.SendPropertyChanging();
-					this._Perfil = value;
-					this.SendPropertyChanged("Perfil");
-					this.OnPerfilChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPerfil_Usuario")]
-	public partial class TPerfil_Usuario
-	{
-		
-		private string _CodPerfil;
-		
-		private string _CodUsuario;
-		
-		public TPerfil_Usuario()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPerfil", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodPerfil
-		{
-			get
-			{
-				return this._CodPerfil;
-			}
-			set
-			{
-				if ((this._CodPerfil != value))
-				{
-					this._CodPerfil = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodUsuario", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
-		public string CodUsuario
-		{
-			get
-			{
-				return this._CodUsuario;
-			}
-			set
-			{
-				if ((this._CodUsuario != value))
-				{
-					this._CodUsuario = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TPrincipal")]
-	public partial class TPrincipal1
+	public partial class TPrincipal
 	{
 		
 		private string _CodDocente_Asignatura;
@@ -1285,11 +1022,11 @@ namespace Modelo
 		
 		private string _CodHorario;
 		
-		public TPrincipal1()
+		public TPrincipal()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
 		public string CodDocente_Asignatura
 		{
 			get
@@ -1305,7 +1042,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(3)")]
 		public string CodLaboratorio
 		{
 			get
@@ -1321,7 +1058,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDia", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
 		public string CodDia
 		{
 			get
@@ -1337,7 +1074,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodHorario", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
 		public string CodHorario
 		{
 			get
@@ -1349,344 +1086,6 @@ namespace Modelo
 				if ((this._CodHorario != value))
 				{
 					this._CodHorario = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUsuario")]
-	public partial class TUsuario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _IdUsuario;
-		
-		private string _Usuario;
-		
-		private string _Contraseña;
-		
-		private string _Nombre;
-		
-		private string _Apellido_Paterno;
-		
-		private string _Apellido_Materno;
-		
-		private string _Dni;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdUsuarioChanging(string value);
-    partial void OnIdUsuarioChanged();
-    partial void OnUsuarioChanging(string value);
-    partial void OnUsuarioChanged();
-    partial void OnContraseñaChanging(string value);
-    partial void OnContraseñaChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnApellido_PaternoChanging(string value);
-    partial void OnApellido_PaternoChanged();
-    partial void OnApellido_MaternoChanging(string value);
-    partial void OnApellido_MaternoChanged();
-    partial void OnDniChanging(string value);
-    partial void OnDniChanged();
-    #endregion
-		
-		public TUsuario()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string IdUsuario
-		{
-			get
-			{
-				return this._IdUsuario;
-			}
-			set
-			{
-				if ((this._IdUsuario != value))
-				{
-					this.OnIdUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._IdUsuario = value;
-					this.SendPropertyChanged("IdUsuario");
-					this.OnIdUsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Usuario
-		{
-			get
-			{
-				return this._Usuario;
-			}
-			set
-			{
-				if ((this._Usuario != value))
-				{
-					this.OnUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._Usuario = value;
-					this.SendPropertyChanged("Usuario");
-					this.OnUsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Contraseña
-		{
-			get
-			{
-				return this._Contraseña;
-			}
-			set
-			{
-				if ((this._Contraseña != value))
-				{
-					this.OnContraseñaChanging(value);
-					this.SendPropertyChanging();
-					this._Contraseña = value;
-					this.SendPropertyChanged("Contraseña");
-					this.OnContraseñaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Paterno", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Apellido_Paterno
-		{
-			get
-			{
-				return this._Apellido_Paterno;
-			}
-			set
-			{
-				if ((this._Apellido_Paterno != value))
-				{
-					this.OnApellido_PaternoChanging(value);
-					this.SendPropertyChanging();
-					this._Apellido_Paterno = value;
-					this.SendPropertyChanged("Apellido_Paterno");
-					this.OnApellido_PaternoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Materno", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Apellido_Materno
-		{
-			get
-			{
-				return this._Apellido_Materno;
-			}
-			set
-			{
-				if ((this._Apellido_Materno != value))
-				{
-					this.OnApellido_MaternoChanging(value);
-					this.SendPropertyChanging();
-					this._Apellido_Materno = value;
-					this.SendPropertyChanged("Apellido_Materno");
-					this.OnApellido_MaternoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dni", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Dni
-		{
-			get
-			{
-				return this._Dni;
-			}
-			set
-			{
-				if ((this._Dni != value))
-				{
-					this.OnDniChanging(value);
-					this.SendPropertyChanging();
-					this._Dni = value;
-					this.SendPropertyChanged("Dni");
-					this.OnDniChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	public partial class spuTDocente_ActualizarResult
-	{
-		
-		private int _CodError;
-		
-		private string _Mensaje;
-		
-		public spuTDocente_ActualizarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
-		{
-			get
-			{
-				return this._CodError;
-			}
-			set
-			{
-				if ((this._CodError != value))
-				{
-					this._CodError = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(33) NOT NULL", CanBeNull=false)]
-		public string Mensaje
-		{
-			get
-			{
-				return this._Mensaje;
-			}
-			set
-			{
-				if ((this._Mensaje != value))
-				{
-					this._Mensaje = value;
-				}
-			}
-		}
-	}
-	
-	public partial class spuTDocente_ListarResult
-	{
-		
-		private string _CodDocente;
-		
-		private string _Nombre;
-		
-		public spuTDocente_ListarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
-		public string CodDocente
-		{
-			get
-			{
-				return this._CodDocente;
-			}
-			set
-			{
-				if ((this._CodDocente != value))
-				{
-					this._CodDocente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this._Nombre = value;
-				}
-			}
-		}
-	}
-	
-	public partial class spuTDocente_InsertarResult
-	{
-		
-		private int _CodError;
-		
-		private string _Mensaje;
-		
-		public spuTDocente_InsertarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
-		{
-			get
-			{
-				return this._CodError;
-			}
-			set
-			{
-				if ((this._CodError != value))
-				{
-					this._CodError = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
-		public string Mensaje
-		{
-			get
-			{
-				return this._Mensaje;
-			}
-			set
-			{
-				if ((this._Mensaje != value))
-				{
-					this._Mensaje = value;
 				}
 			}
 		}
@@ -1780,6 +1179,138 @@ namespace Modelo
 		}
 	}
 	
+	public partial class spuTDocente_ActualizarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTDocente_ActualizarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(33) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTDocente_InsertarResult
+	{
+		
+		private int _CodError;
+		
+		private string _Mensaje;
+		
+		public spuTDocente_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTDocente_ListarResult
+	{
+		
+		private string _CodDocente;
+		
+		private string _Nombre;
+		
+		public spuTDocente_ListarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string CodDocente
+		{
+			get
+			{
+				return this._CodDocente;
+			}
+			set
+			{
+				if ((this._CodDocente != value))
+				{
+					this._CodDocente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
 	public partial class spuTDocenteAsignatura_ActualizarResult
 	{
 		
@@ -1868,58 +1399,110 @@ namespace Modelo
 		}
 	}
 	
-	public partial class spuTLaboratorio_ActualizarResult
+	public partial class spuTUsuario_BuscarResult
 	{
 		
-		private int _CodError;
+		private string _Contraseña;
 		
-		private string _Mensaje;
+		private string _Nombre;
 		
-		public spuTLaboratorio_ActualizarResult()
+		private string _Apellido_Paterno;
+		
+		private string _Apellido_Materno;
+		
+		private string _Dni_Usuario;
+		
+		public spuTUsuario_BuscarResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Contraseña
 		{
 			get
 			{
-				return this._CodError;
+				return this._Contraseña;
 			}
 			set
 			{
-				if ((this._CodError != value))
+				if ((this._Contraseña != value))
 				{
-					this._CodError = value;
+					this._Contraseña = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(33) NOT NULL", CanBeNull=false)]
-		public string Mensaje
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
 		{
 			get
 			{
-				return this._Mensaje;
+				return this._Nombre;
 			}
 			set
 			{
-				if ((this._Mensaje != value))
+				if ((this._Nombre != value))
 				{
-					this._Mensaje = value;
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Paterno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido_Paterno
+		{
+			get
+			{
+				return this._Apellido_Paterno;
+			}
+			set
+			{
+				if ((this._Apellido_Paterno != value))
+				{
+					this._Apellido_Paterno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Materno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido_Materno
+		{
+			get
+			{
+				return this._Apellido_Materno;
+			}
+			set
+			{
+				if ((this._Apellido_Materno != value))
+				{
+					this._Apellido_Materno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dni_Usuario", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Dni_Usuario
+		{
+			get
+			{
+				return this._Dni_Usuario;
+			}
+			set
+			{
+				if ((this._Dni_Usuario != value))
+				{
+					this._Dni_Usuario = value;
 				}
 			}
 		}
 	}
 	
-	public partial class spuTLaboratorio_InsertarResult
+	public partial class spuTUsuario_InsertarResult
 	{
 		
 		private int _CodError;
 		
-		private string _Mensaje;
-		
-		public spuTLaboratorio_InsertarResult()
+		public spuTUsuario_InsertarResult()
 		{
 		}
 		
@@ -1935,22 +1518,6 @@ namespace Modelo
 				if ((this._CodError != value))
 				{
 					this._CodError = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
-		public string Mensaje
-		{
-			get
-			{
-				return this._Mensaje;
-			}
-			set
-			{
-				if ((this._Mensaje != value))
-				{
-					this._Mensaje = value;
 				}
 			}
 		}

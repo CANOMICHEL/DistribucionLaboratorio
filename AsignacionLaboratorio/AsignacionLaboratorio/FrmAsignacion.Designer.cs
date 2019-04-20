@@ -33,7 +33,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cboLaboratorio = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboAsignatura = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.dgvDatosHorario = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cboSemestre = new System.Windows.Forms.ComboBox();
@@ -42,22 +48,16 @@
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarDocenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvHorarioAsignacion = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosHorario)).BeginInit();
             this.panel5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorarioAsignacion)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +72,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1350, 46);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // btnSalir
             // 
@@ -114,6 +113,53 @@
             this.panel4.Size = new System.Drawing.Size(1347, 230);
             this.panel4.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel3.Controls.Add(this.cboLaboratorio);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.cboAsignatura);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(444, 230);
+            this.panel3.TabIndex = 12;
+            // 
+            // cboLaboratorio
+            // 
+            this.cboLaboratorio.FormattingEnabled = true;
+            this.cboLaboratorio.Location = new System.Drawing.Point(104, 104);
+            this.cboLaboratorio.Name = "cboLaboratorio";
+            this.cboLaboratorio.Size = new System.Drawing.Size(274, 28);
+            this.cboLaboratorio.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Laboratorio";
+            // 
+            // cboAsignatura
+            // 
+            this.cboAsignatura.FormattingEnabled = true;
+            this.cboAsignatura.Location = new System.Drawing.Point(104, 50);
+            this.cboAsignatura.Name = "cboAsignatura";
+            this.cboAsignatura.Size = new System.Drawing.Size(274, 28);
+            this.cboAsignatura.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Asignatura";
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.panel7);
@@ -124,8 +170,17 @@
             this.panel6.Size = new System.Drawing.Size(903, 230);
             this.panel6.TabIndex = 11;
             // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 214);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(903, 16);
+            this.panel7.TabIndex = 1;
+            // 
             // dgvDatosHorario
             // 
+            this.dgvDatosHorario.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDatosHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosHorario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatosHorario.Location = new System.Drawing.Point(0, 0);
@@ -135,6 +190,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel5.Controls.Add(this.cboSemestre);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.menuStrip1);
@@ -201,77 +257,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1350, 729);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(444, 230);
-            this.panel3.TabIndex = 12;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(104, 104);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(274, 28);
-            this.comboBox2.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Laboratorio";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 28);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Asignatura";
-            // 
-            // panel7
-            // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 214);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(903, 16);
-            this.panel7.TabIndex = 1;
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.dgvHorarioAsignacion);
             this.panel8.Location = new System.Drawing.Point(3, 345);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1344, 332);
+            this.panel8.Size = new System.Drawing.Size(1344, 302);
             this.panel8.TabIndex = 4;
             // 
             // dgvHorarioAsignacion
             // 
+            this.dgvHorarioAsignacion.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvHorarioAsignacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHorarioAsignacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHorarioAsignacion.Location = new System.Drawing.Point(0, 0);
             this.dgvHorarioAsignacion.Name = "dgvHorarioAsignacion";
-            this.dgvHorarioAsignacion.Size = new System.Drawing.Size(1344, 332);
+            this.dgvHorarioAsignacion.Size = new System.Drawing.Size(1344, 283);
             this.dgvHorarioAsignacion.TabIndex = 1;
             // 
             // FrmAsignacion
@@ -282,6 +283,7 @@
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmAsignacion";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAsignacion";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -289,6 +291,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosHorario)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -296,8 +300,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorarioAsignacion)).EndInit();
             this.ResumeLayout(false);
@@ -321,9 +323,9 @@
         private System.Windows.Forms.ToolStripMenuItem agregarDocenteToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboLaboratorio;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboAsignatura;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;

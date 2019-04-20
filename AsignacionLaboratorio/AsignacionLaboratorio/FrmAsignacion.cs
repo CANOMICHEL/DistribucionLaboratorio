@@ -13,28 +13,27 @@ namespace AsignacionLaboratorio
 {
     public partial class FrmAsignacion : Form
     {
+        cAsignatura aAsignatura = new cAsignatura();
         public FrmAsignacion()
         {
             InitializeComponent();
         }
-        #region Metodos
-        //private void 
-        #endregion Metodos
-
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void FrmAsignacion_Load(object sender, EventArgs e)
         {
-            cLaboratorio Lab = new cLaboratorio();
-            Lab.TLaboratorio(dgvDatosHorario);
+            ListarHorario();
         }
 
-        private void Panel1_Paint(object sender, PaintEventArgs e)
+        #region Metodos
+
+        private void ListarHorario()
         {
-
+            cboAsignatura.DataSource = aAsignatura.Tabla();
+            cboAsignatura.DisplayMember = "NombreAsignatura";
+            cboAsignatura.ValueMember = "CodAsignatura";
         }
+
+        #endregion Metodos
+
     }
 }

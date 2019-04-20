@@ -1,0 +1,7 @@
+F:\AsignacionLaboratorio2\Modelo\bin\Release\Modelo.dll.config
+F:\AsignacionLaboratorio2\Modelo\bin\Release\Modelo.dll
+F:\AsignacionLaboratorio2\Modelo\bin\Release\Modelo.pdb
+F:\AsignacionLaboratorio2\Modelo\obj\Release\Modelo.csprojAssemblyReference.cache
+F:\AsignacionLaboratorio2\Modelo\obj\Release\Modelo.csproj.CoreCompileInputs.cache
+F:\AsignacionLaboratorio2\Modelo\obj\Release\Modelo.dll
+F:\AsignacionLaboratorio2\Modelo\obj\Release\Modelo.pdb

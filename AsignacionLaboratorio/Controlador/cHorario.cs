@@ -17,5 +17,15 @@ namespace Controlador
             dgv.DataSource = dc.THorario;
             return dgv.DataSource as DataTable;
         }
+
+        public DataTable Tabla1()
+        {
+            var vrCountry = from horario in dc.THorario
+                            select new {horario.CodHorario,horario.Horario};
+            DataTable dt = ToDataTable(dc, vrCountry);
+            return dt;
+        }
+
+        
     }
 }

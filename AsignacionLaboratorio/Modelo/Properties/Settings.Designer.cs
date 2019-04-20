@@ -12,7 +12,7 @@ namespace Modelo.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -53,6 +53,17 @@ namespace Modelo.Properties {
         public string BDOrganizacionLaboratoriosDAIConnectionString2 {
             get {
                 return ((string)(this["BDOrganizacionLaboratoriosDAIConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C99SIFV\\MYSQL;Initial Catalog=BDOrganizacionLaboratoriosDAI;I" +
+            "ntegrated Security=True")]
+        public string BDOrganizacionLaboratoriosDAIConnectionString3 {
+            get {
+                return ((string)(this["BDOrganizacionLaboratoriosDAIConnectionString3"]));
             }
         }
     }

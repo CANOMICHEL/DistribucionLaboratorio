@@ -50,6 +50,15 @@ namespace AsignacionLaboratorio
             }
         }
 
+        private void Reestablecer()
+        {
+            tbUser.Text = "Usuario";
+            tbUser.ForeColor = Color.Gray;
+            tbPassword.UseSystemPasswordChar = false;
+            tbPassword.Text = "Contraseña";
+            tbPassword.ForeColor = Color.Gray;
+        }
+
         private void adminnistradorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelLogin.Visible = true;
@@ -61,7 +70,10 @@ namespace AsignacionLaboratorio
 
             if (user.ValidarUsuario(tbUser.Text,tbPassword.Text))
             {
-                (new FrmAdmin()).Show();
+                FrmAdmin admin = new FrmAdmin();
+                admin.Show();
+                admin.CargarDatosUsuario(tbUser.Text);
+                Reestablecer();
             }
             else
             {
@@ -70,6 +82,11 @@ namespace AsignacionLaboratorio
             }
 
             
+        }
+
+        private void SalirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

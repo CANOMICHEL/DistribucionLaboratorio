@@ -47,11 +47,10 @@ E:\AsignacionLaboratorio2\Controlador\bin\Debug\Controlador.dll
 E:\AsignacionLaboratorio2\Controlador\bin\Debug\Controlador.pdb
 E:\AsignacionLaboratorio2\Controlador\bin\Debug\Modelo.dll
 E:\AsignacionLaboratorio2\Controlador\bin\Debug\Modelo.pdb
-E:\AsignacionLaboratorio2\Controlador\bin\Debug\Modelo.dll.config
-E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csprojAssemblyReference.cache
-E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
-E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.dll
 E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.pdb
 F:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.FrmPadre.resources
 F:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.GenerateResource.cache
+E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csprojResolveAssemblyReference.cache
+E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.FrmPadre.resources
+E:\AsignacionLaboratorio2\Controlador\obj\Debug\Controlador.csproj.GenerateResource.Cache

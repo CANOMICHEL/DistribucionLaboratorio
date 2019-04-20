@@ -1,0 +1,12 @@
+F:\AsignacionLaboratorio2\Controlador\bin\Release\Controlador.dll
+F:\AsignacionLaboratorio2\Controlador\bin\Release\Controlador.pdb
+F:\AsignacionLaboratorio2\Controlador\bin\Release\Modelo.dll
+F:\AsignacionLaboratorio2\Controlador\bin\Release\Modelo.pdb
+F:\AsignacionLaboratorio2\Controlador\bin\Release\Modelo.dll.config
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.csprojAssemblyReference.cache
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.FrmPadre.resources
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.csproj.GenerateResource.cache
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.csproj.CoreCompileInputs.cache
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.csproj.CopyComplete
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.dll
+F:\AsignacionLaboratorio2\Controlador\obj\Release\Controlador.pdb

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataSource>
+ Data Source=LENOVO-PC\SQLEXPRESS;Initial Catalog=BDOrganizacionLaboratoriosDAI;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False
+</DataSource>

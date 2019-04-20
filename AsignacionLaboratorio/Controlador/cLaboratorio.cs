@@ -19,10 +19,10 @@ namespace Controlador
             //return dgv.DataSource as DataTable;
         }
 
-        public void TLaboratorio_cb(ComboBox cb)
-        {
-            cb.DataSource = dc.TLaboratorio;
-        }
+        //public void TLaboratorio_cb(ComboBox cb)
+        //{
+        //    cb.DataSource = dc.TLaboratorio;
+        //}
 
         //private void Tabla()
         //{
