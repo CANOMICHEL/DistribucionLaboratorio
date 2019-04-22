@@ -33,20 +33,25 @@ namespace Controlador
             return dt;
         }
 
-        public void InsertarNuevoUsuario(string DNI,string Nombre,string AP,string AM,string contra)
+        public void InsertarNuevoUsuario(string DNI,string Nombre,string AP,string AM,string contra,string Estado)
         {
-            dc.spuTUsuario_Insertar(contra,Nombre,AP,AM,DNI);
+            dc.spuTUsuario_Insertar(contra,Nombre,AP,AM,DNI,Estado);
+        }
+
+        public void ActualizarUsuario(string DNI, string Nombre, string AP, string AM, string contra, string Estado)
+        {
+            dc.spuTUsuario_Actualizar(contra, Nombre, AP, AM, DNI, Estado);
         }
 
         public string GenerarContraseña()
         {
             var seed = Environment.TickCount;
             var random = new Random(seed);
-            var value = random.Next(0, 10);
+            var value = random.Next(1, 9);
             string contra = value.ToString();
             for (int i = 0; i < 3; i++)
             {
-                value = random.Next(1, 9);
+                value = random.Next(0, 9);
                 contra += value.ToString();
             }
             return contra;

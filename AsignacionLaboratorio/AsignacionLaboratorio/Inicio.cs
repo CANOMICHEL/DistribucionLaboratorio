@@ -12,11 +12,15 @@ namespace AsignacionLaboratorio
 {
     public partial class Inicio : Form
     {
+        #region constructor
         public Inicio()
         {
             InitializeComponent();
         }
-        private void tbUser_Enter(object sender, EventArgs e)
+        #endregion constructor
+
+        #region eventos
+        private void TextBox_Enter(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
             if (tb.Text == "Usuario")
@@ -34,7 +38,7 @@ namespace AsignacionLaboratorio
 
         }
 
-        private void tbUser_Leave(object sender, EventArgs e)
+        private void TextBox_Leave(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
             if (tb.Text == "" & tbPassword.Text == "Contraseña")
@@ -48,15 +52,6 @@ namespace AsignacionLaboratorio
                 tbPassword.Text = "Contraseña";
                 tb.ForeColor = Color.Gray;
             }
-        }
-
-        private void Reestablecer()
-        {
-            tbUser.Text = "Usuario";
-            tbUser.ForeColor = Color.Gray;
-            tbPassword.UseSystemPasswordChar = false;
-            tbPassword.Text = "Contraseña";
-            tbPassword.ForeColor = Color.Gray;
         }
 
         private void adminnistradorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,5 +83,23 @@ namespace AsignacionLaboratorio
         {
             this.Close();
         }
+
+        #endregion eventos
+
+        #region metodos
+        private void Reestablecer()
+        {
+            tbUser.Text = "Usuario";
+            tbUser.ForeColor = Color.Gray;
+            tbPassword.UseSystemPasswordChar = false;
+            tbPassword.Text = "Contraseña";
+            tbPassword.ForeColor = Color.Gray;
+        }
+
+        #endregion metodos
+
+        
+
+        
     }
 }

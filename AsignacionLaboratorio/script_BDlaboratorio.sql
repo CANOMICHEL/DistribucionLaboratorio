@@ -29,6 +29,7 @@ Nombre varchar (50) not null,
 Apellido_Paterno varchar(50) not null,
 Apellido_Materno varchar (50) not null,
 Dni_Usuario varchar(8) not null,
+Estado Varchar(10),
 Primary key(DNI_Usuario)
 )
 go
@@ -81,10 +82,11 @@ FOREIGN KEY(CodHorario) references THorario(CodHorario)
 )
 go
 
-insert into TUsuario values ('1234','Juan','Quispe','Huaman','75684458')
-insert into TUsuario values ('1254','Manuel','Apaza','Garrido','56883423')
+insert into TUsuario values ('1234','MICHEL','CANO','LOAIZA','75684458','ACTIVO')
+
+insert into TUsuario values ('1254','Manuel','Apaza','Garrido','56883423','DESACTIVO')
 
 insert into TAsignatura values('IF412AIN','ALGORITMICA','4','OE')
 insert into TAsignatura values('IF416AIN','COMPUTACIÓN GRÁFICA','4','OE')
 
-select* from TAsignatura
+select* from TUsuario

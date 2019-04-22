@@ -197,18 +197,18 @@ namespace Modelo
 			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Buscar")]
-		public ISingleResult<spuTUsuario_BuscarResult> spuTUsuario_Buscar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Insertar")]
+		public ISingleResult<spuTUsuario_InsertarResult> spuTUsuario_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="VarChar(10)")] string estado)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dni_Usuario);
-			return ((ISingleResult<spuTUsuario_BuscarResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario, estado);
+			return ((ISingleResult<spuTUsuario_InsertarResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Insertar")]
-		public ISingleResult<spuTUsuario_InsertarResult> spuTUsuario_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Actualizar")]
+		public ISingleResult<spuTUsuario_ActualizarResult> spuTUsuario_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="VarChar(10)")] string estado)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario);
-			return ((ISingleResult<spuTUsuario_InsertarResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario, estado);
+			return ((ISingleResult<spuTUsuario_ActualizarResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1399,110 +1399,38 @@ namespace Modelo
 		}
 	}
 	
-	public partial class spuTUsuario_BuscarResult
-	{
-		
-		private string _Contraseña;
-		
-		private string _Nombre;
-		
-		private string _Apellido_Paterno;
-		
-		private string _Apellido_Materno;
-		
-		private string _Dni_Usuario;
-		
-		public spuTUsuario_BuscarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Contraseña
-		{
-			get
-			{
-				return this._Contraseña;
-			}
-			set
-			{
-				if ((this._Contraseña != value))
-				{
-					this._Contraseña = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this._Nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Paterno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Apellido_Paterno
-		{
-			get
-			{
-				return this._Apellido_Paterno;
-			}
-			set
-			{
-				if ((this._Apellido_Paterno != value))
-				{
-					this._Apellido_Paterno = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido_Materno", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Apellido_Materno
-		{
-			get
-			{
-				return this._Apellido_Materno;
-			}
-			set
-			{
-				if ((this._Apellido_Materno != value))
-				{
-					this._Apellido_Materno = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dni_Usuario", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string Dni_Usuario
-		{
-			get
-			{
-				return this._Dni_Usuario;
-			}
-			set
-			{
-				if ((this._Dni_Usuario != value))
-				{
-					this._Dni_Usuario = value;
-				}
-			}
-		}
-	}
-	
 	public partial class spuTUsuario_InsertarResult
 	{
 		
 		private int _CodError;
 		
 		public spuTUsuario_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTUsuario_ActualizarResult
+	{
+		
+		private int _CodError;
+		
+		public spuTUsuario_ActualizarResult()
 		{
 		}
 		

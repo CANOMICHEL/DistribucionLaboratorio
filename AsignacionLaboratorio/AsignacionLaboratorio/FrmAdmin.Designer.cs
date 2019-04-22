@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -76,6 +76,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(445, 450);
             this.panel3.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(376, 144);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "BIENVENIDO\r\nDesde aquí usted tiene acceso\r\na la mayoría de las funcionalidades\r\nd" +
+    "el sistema; desde el cual Ud.\r\ntiene la obligacion de asignar los ambientes\r\nde " +
+    "laboratorio.";
             // 
             // menuStrip1
             // 
@@ -120,6 +132,7 @@
             this.suspenderUsuarioToolStripMenuItem.Name = "suspenderUsuarioToolStripMenuItem";
             this.suspenderUsuarioToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.suspenderUsuarioToolStripMenuItem.Text = "Suspender Usuario";
+            this.suspenderUsuarioToolStripMenuItem.Click += new System.EventHandler(this.SuspenderUsuarioToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -250,18 +263,6 @@
             this.label2.Size = new System.Drawing.Size(207, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "______________________";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(376, 144);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "BIENVENIDO\r\nDesde aquí usted tiene acceso\r\na la mayoría de las funcionalidades\r\nd" +
-    "el sistema; desde el cual Ud.\r\ntiene la obligacion de asignar los ambientes\r\nde " +
-    "laboratorio.";
             // 
             // FrmAdmin
             // 

@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.tbAM = new System.Windows.Forms.TextBox();
             this.tbAP = new System.Windows.Forms.TextBox();
@@ -43,16 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chbEstado = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.chbEstado);
             this.panel1.Controls.Add(this.btnAñadir);
             this.panel1.Controls.Add(this.tbAM);
             this.panel1.Controls.Add(this.tbAP);
@@ -62,7 +58,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -70,56 +66,11 @@
             this.panel1.Size = new System.Drawing.Size(866, 375);
             this.panel1.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(544, 122);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 212);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nivel de Acceso";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(26, 159);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(119, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(26, 112);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(119, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(26, 65);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(119, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // btnAñadir
             // 
             this.btnAñadir.AutoSize = true;
             this.btnAñadir.Enabled = false;
-            this.btnAñadir.Location = new System.Drawing.Point(365, 324);
+            this.btnAñadir.Location = new System.Drawing.Point(365, 333);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(124, 30);
             this.btnAñadir.TabIndex = 9;
@@ -129,7 +80,7 @@
             // 
             // tbAM
             // 
-            this.tbAM.Location = new System.Drawing.Point(246, 281);
+            this.tbAM.Location = new System.Drawing.Point(234, 234);
             this.tbAM.Name = "tbAM";
             this.tbAM.Size = new System.Drawing.Size(243, 26);
             this.tbAM.TabIndex = 8;
@@ -139,7 +90,7 @@
             // 
             // tbAP
             // 
-            this.tbAP.Location = new System.Drawing.Point(246, 228);
+            this.tbAP.Location = new System.Drawing.Point(234, 181);
             this.tbAP.Name = "tbAP";
             this.tbAP.Size = new System.Drawing.Size(243, 26);
             this.tbAP.TabIndex = 7;
@@ -148,7 +99,7 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(246, 175);
+            this.tbNombre.Location = new System.Drawing.Point(234, 128);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(243, 26);
             this.tbNombre.TabIndex = 6;
@@ -157,7 +108,7 @@
             // 
             // tbDNI
             // 
-            this.tbDNI.Location = new System.Drawing.Point(246, 122);
+            this.tbDNI.Location = new System.Drawing.Point(234, 75);
             this.tbDNI.Name = "tbDNI";
             this.tbDNI.Size = new System.Drawing.Size(243, 26);
             this.tbDNI.TabIndex = 5;
@@ -167,7 +118,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 287);
+            this.label5.Location = new System.Drawing.Point(96, 240);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 20);
             this.label5.TabIndex = 4;
@@ -176,7 +127,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(111, 234);
+            this.label4.Location = new System.Drawing.Point(99, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 3;
@@ -185,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(171, 181);
+            this.label3.Location = new System.Drawing.Point(159, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
@@ -194,24 +145,37 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 128);
+            this.label2.Location = new System.Drawing.Point(187, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "DNI:";
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(354, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "INGRESE LOS DATOS DEL NUEVO USUARIO";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(135, 23);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(354, 20);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "INGRESE LOS DATOS DEL NUEVO USUARIO";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // chbEstado
+            // 
+            this.chbEstado.AutoSize = true;
+            this.chbEstado.Checked = true;
+            this.chbEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbEstado.Location = new System.Drawing.Point(234, 266);
+            this.chbEstado.Name = "chbEstado";
+            this.chbEstado.Size = new System.Drawing.Size(71, 24);
+            this.chbEstado.TabIndex = 10;
+            this.chbEstado.Text = "Activo";
+            this.chbEstado.UseVisualStyleBackColor = true;
+            this.chbEstado.CheckedChanged += new System.EventHandler(this.ChbEstado_CheckedChanged);
             // 
             // FrmAñadirUsuario
             // 
@@ -220,11 +184,9 @@
             this.ClientSize = new System.Drawing.Size(866, 375);
             this.Controls.Add(this.panel1);
             this.Name = "FrmAñadirUsuario";
-            this.Text = "FrmAñadirUsuario";
+            this.Text = "Añadir Usuario";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -240,13 +202,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox tbAM;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox chbEstado;
     }
 }

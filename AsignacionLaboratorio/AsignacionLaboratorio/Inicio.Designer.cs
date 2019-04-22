@@ -164,8 +164,8 @@
             this.tbPassword.Size = new System.Drawing.Size(145, 22);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.Text = "Contraseña";
-            this.tbPassword.Enter += new System.EventHandler(this.tbUser_Enter);
-            this.tbPassword.Leave += new System.EventHandler(this.tbUser_Leave);
+            this.tbPassword.Enter += new System.EventHandler(this.TextBox_Enter);
+            this.tbPassword.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // label2
             // 
@@ -190,8 +190,8 @@
             this.tbUser.Size = new System.Drawing.Size(144, 22);
             this.tbUser.TabIndex = 1;
             this.tbUser.Text = "Usuario";
-            this.tbUser.Enter += new System.EventHandler(this.tbUser_Enter);
-            this.tbUser.Leave += new System.EventHandler(this.tbUser_Leave);
+            this.tbUser.Enter += new System.EventHandler(this.TextBox_Enter);
+            this.tbUser.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // btnAcceder
             // 

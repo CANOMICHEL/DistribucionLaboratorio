@@ -51,14 +51,14 @@
         <classShapeMoniker Id="64c1c418-e6bc-4efc-8d4c-1b815f4ff1f7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.06856974283854); (3.5 : 2.06856974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 2.06856974283854); (3.04166666666667 : 2.06856974283854 : JumpStart); (3.20833333333333 : 2.06856974283854 : JumpEnd); (3.5 : 2.06856974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/conexionDataContext/TDocente/TDocente_TDocente_Asignatura" />
       <nodes>
         <classShapeMoniker Id="ab1b1b91-eaa4-43d1-a762-a017a84d2572" />
         <classShapeMoniker Id="64c1c418-e6bc-4efc-8d4c-1b815f4ff1f7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.65625); (6.46875 : 3.65625); (6.46875 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 3.65625); (6.24478916666667 : 3.65625 : JumpStart); (6.41145583333333 : 3.65625 : JumpEnd); (6.46875 : 3.65625); (6.46875 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/conexionDataContext/TDia/TDia_TPrincipal" />
       <nodes>
         <classShapeMoniker Id="07bb422f-3f7d-4cb1-928d-c272b5371e6f" />

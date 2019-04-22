@@ -130,23 +130,25 @@
     <Parameter Name="NroLaboratorio" Parameter="nroLaboratorio" Type="System.String" DbType="VarChar(20)" />
     <Return Type="object" />
   </Function>
-  <Function Name="dbo.spuTUsuario_Buscar" Method="spuTUsuario_Buscar">
-    <Parameter Name="Dni_Usuario" Parameter="dni_Usuario" Type="System.String" DbType="VarChar(8)" />
-    <ElementType Name="spuTUsuario_BuscarResult">
-      <Column Name="Contraseña" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido_Paterno" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido_Materno" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Dni_Usuario" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.spuTUsuario_Insertar" Method="spuTUsuario_Insertar">
     <Parameter Name="Contraseña" Parameter="contraseña" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Apellido_Paterno" Parameter="apellido_Paterno" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Apellido_Materno" Parameter="apellido_Materno" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Dni_Usuario" Parameter="dni_Usuario" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="spuTUsuario_InsertarResult">
+      <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spuTUsuario_Actualizar" Method="spuTUsuario_Actualizar">
+    <Parameter Name="Contraseña" Parameter="contraseña" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Apellido_Paterno" Parameter="apellido_Paterno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Apellido_Materno" Parameter="apellido_Materno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Dni_Usuario" Parameter="dni_Usuario" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="spuTUsuario_ActualizarResult">
       <Column Name="CodError" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>

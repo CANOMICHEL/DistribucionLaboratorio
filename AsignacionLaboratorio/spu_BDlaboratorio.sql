@@ -279,7 +279,8 @@ create procedure spuTUsuario_Insertar
 	@Nombre varchar (50),
 	@Apellido_Paterno varchar(50),
 	@Apellido_Materno varchar (50),
-	@Dni_Usuario varchar(8)
+	@Dni_Usuario varchar(8),
+	@Estado varchar(10)
 as
 begin
 if(@Dni_Usuario!='' and not exists(select* from TUsuario where Dni_Usuario=@Dni_Usuario))
@@ -290,7 +291,7 @@ begin
 		begin
 			if(@Apellido_Materno!='')
 			begin
-				insert into TUsuario values(@Contraseña, @Nombre, @Apellido_Paterno, @Apellido_Materno, @Dni_Usuario)
+				insert into TUsuario values(@Contraseña, @Nombre, @Apellido_Paterno, @Apellido_Materno, @Dni_Usuario,@Estado)
 				select CodError = 0
 			end
 		end
@@ -305,18 +306,47 @@ else
 end
 go
 
---buscar Usuario
-if exists (select * from dbo.sysobjects where name = 'spuTUsuario_Buscar')
-	drop procedure spuTUsuario_Buscar
+--actualizarUsuario
+if exists (select* from dbo.sysobjects where name='spuTUsuario_Actualizar')
+	drop procedure spuTUsuario_Actualizar
 go
-create procedure spuTUsuario_Buscar
-	@Dni_Usuario varchar(8)
+create procedure spuTUsuario_Actualizar
+	@Contraseña varchar(10),
+	@Nombre varchar (50),
+	@Apellido_Paterno varchar(50),
+	@Apellido_Materno varchar (50),
+	@Dni_Usuario varchar(8),
+	@Estado varchar(10)
 as
 begin
-if(@Dni_Usuario!='')
-	select* from TUsuario where Dni_Usuario = @Dni_Usuario
+if(@Dni_Usuario!='' and exists(select* from TUsuario where Dni_Usuario=@Dni_Usuario))
+begin
+	if(@Nombre!='')
+	begin
+		if(@Apellido_Paterno!='')
+		begin
+			if(@Apellido_Materno!='')
+			begin
+				update TUsuario set
+				Nombre=@Nombre,
+				Apellido_Paterno=@Apellido_Paterno,
+				Apellido_Materno=@Apellido_Materno,
+				Estado=@Estado
+				where Dni_Usuario=@Dni_Usuario
+				select CodError = 0
+			end
+		end
+		else
+			select CodError = 1
+	end
+	else
+		select CodError = 1
+end
+else
+	select CodError = 1
 end
 go
 
-exec spuTUsuario_Buscar '75684458'
+exec spuTUsuario_Actualizar '1234','JUAN','CANO','LOPEZ','75684458','ACTIVO'
+
 
