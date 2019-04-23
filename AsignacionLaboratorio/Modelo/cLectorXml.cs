@@ -8,7 +8,7 @@ namespace Modelo
         public string cadenaConexion()
         {
             string cad = "";
-            XmlTextReader lector = new XmlTextReader(@"F:\AsignacionLaboratorio2\Modelo\docXML\XMLFile1.xml");
+            XmlTextReader lector = new XmlTextReader(@"XMLFile1.xml");
             while (lector.Read())
             {
 

@@ -42,9 +42,6 @@ namespace Modelo
     partial void InsertTDocente(TDocente instance);
     partial void UpdateTDocente(TDocente instance);
     partial void DeleteTDocente(TDocente instance);
-    partial void InsertTDocente_Asignatura(TDocente_Asignatura instance);
-    partial void UpdateTDocente_Asignatura(TDocente_Asignatura instance);
-    partial void DeleteTDocente_Asignatura(TDocente_Asignatura instance);
     partial void InsertTHorario(THorario instance);
     partial void UpdateTHorario(THorario instance);
     partial void DeleteTHorario(THorario instance);
@@ -112,14 +109,6 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<TDocente_Asignatura> TDocente_Asignatura
-		{
-			get
-			{
-				return this.GetTable<TDocente_Asignatura>();
-			}
-		}
-		
 		public System.Data.Linq.Table<THorario> THorario
 		{
 			get
@@ -136,23 +125,24 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Insertar", IsComposable=true)]
-		public object spuTLaboratorio_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Insertar")]
+		public ISingleResult<spuTUsuario_InsertarResult> spuTUsuario_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="VarChar(10)")] string estado)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio).ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario, estado);
+			return ((ISingleResult<spuTUsuario_InsertarResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTAsignatura_Actualizar")]
-		public ISingleResult<spuTAsignatura_ActualizarResult> spuTAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria)
+		public ISingleResult<spuTAsignatura_ActualizarResult> spuTAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(8)")] string codDocente)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria, codDocente);
 			return ((ISingleResult<spuTAsignatura_ActualizarResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTAsignatura_Insertar")]
-		public ISingleResult<spuTAsignatura_InsertarResult> spuTAsignatura_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria)
+		public ISingleResult<spuTAsignatura_InsertarResult> spuTAsignatura_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreAsignatura", DbType="VarChar(40)")] string nombreAsignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Creditos", DbType="VarChar(20)")] string creditos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Categoria", DbType="VarChar(20)")] string categoria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(8)")] string codDocente)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codAsignatura, nombreAsignatura, creditos, categoria, codDocente);
 			return ((ISingleResult<spuTAsignatura_InsertarResult>)(result.ReturnValue));
 		}
 		
@@ -175,33 +165,6 @@ namespace Modelo
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<spuTDocente_ListarResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocenteAsignatura_Actualizar")]
-		public ISingleResult<spuTDocenteAsignatura_ActualizarResult> spuTDocenteAsignatura_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente_Asignatura", DbType="VarChar(12)")] string codDocente_Asignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente_Asignatura, codDocente, codAsignatura);
-			return ((ISingleResult<spuTDocenteAsignatura_ActualizarResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTDocenteAsignatura_Insertar")]
-		public ISingleResult<spuTDocenteAsignatura_InsertarResult> spuTDocenteAsignatura_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente_Asignatura", DbType="VarChar(12)")] string codDocente_Asignatura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodDocente", DbType="VarChar(5)")] string codDocente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodAsignatura", DbType="VarChar(12)")] string codAsignatura)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codDocente_Asignatura, codDocente, codAsignatura);
-			return ((ISingleResult<spuTDocenteAsignatura_InsertarResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTLaboratorio_Actualizar", IsComposable=true)]
-		public object spuTLaboratorio_Actualizar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodLaboratorio", DbType="VarChar(12)")] string codLaboratorio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NroLaboratorio", DbType="VarChar(20)")] string nroLaboratorio)
-		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codLaboratorio, nroLaboratorio).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Insertar")]
-		public ISingleResult<spuTUsuario_InsertarResult> spuTUsuario_Insertar([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contraseña", DbType="VarChar(10)")] string contraseña, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Paterno", DbType="VarChar(50)")] string apellido_Paterno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido_Materno", DbType="VarChar(50)")] string apellido_Materno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dni_Usuario", DbType="VarChar(8)")] string dni_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="VarChar(10)")] string estado)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), contraseña, nombre, apellido_Paterno, apellido_Materno, dni_Usuario, estado);
-			return ((ISingleResult<spuTUsuario_InsertarResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spuTUsuario_Actualizar")]
@@ -228,6 +191,8 @@ namespace Modelo
 		
 		private string _Dni_Usuario;
 		
+		private string _Estado;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -242,6 +207,8 @@ namespace Modelo
     partial void OnApellido_MaternoChanged();
     partial void OnDni_UsuarioChanging(string value);
     partial void OnDni_UsuarioChanged();
+    partial void OnEstadoChanging(string value);
+    partial void OnEstadoChanged();
     #endregion
 		
 		public TUsuario()
@@ -349,6 +316,26 @@ namespace Modelo
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(10)")]
+		public string Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -384,7 +371,9 @@ namespace Modelo
 		
 		private string _Categoria;
 		
-		private EntitySet<TDocente_Asignatura> _TDocente_Asignatura;
+		private string _CodDocente;
+		
+		private EntityRef<TDocente> _TDocente;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -398,15 +387,17 @@ namespace Modelo
     partial void OnCreditosChanged();
     partial void OnCategoriaChanging(string value);
     partial void OnCategoriaChanged();
+    partial void OnCodDocenteChanging(string value);
+    partial void OnCodDocenteChanged();
     #endregion
 		
 		public TAsignatura()
 		{
-			this._TDocente_Asignatura = new EntitySet<TDocente_Asignatura>(new Action<TDocente_Asignatura>(this.attach_TDocente_Asignatura), new Action<TDocente_Asignatura>(this.detach_TDocente_Asignatura));
+			this._TDocente = default(EntityRef<TDocente>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CodAsignatura
 		{
 			get
@@ -426,7 +417,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreAsignatura", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreAsignatura", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 		public string NombreAsignatura
 		{
 			get
@@ -486,16 +477,61 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TAsignatura_TDocente_Asignatura", Storage="_TDocente_Asignatura", ThisKey="CodAsignatura", OtherKey="CodAsignatura")]
-		public EntitySet<TDocente_Asignatura> TDocente_Asignatura
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string CodDocente
 		{
 			get
 			{
-				return this._TDocente_Asignatura;
+				return this._CodDocente;
 			}
 			set
 			{
-				this._TDocente_Asignatura.Assign(value);
+				if ((this._CodDocente != value))
+				{
+					if (this._TDocente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodDocenteChanging(value);
+					this.SendPropertyChanging();
+					this._CodDocente = value;
+					this.SendPropertyChanged("CodDocente");
+					this.OnCodDocenteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TDocente_TAsignatura", Storage="_TDocente", ThisKey="CodDocente", OtherKey="CodDocente", IsForeignKey=true)]
+		public TDocente TDocente
+		{
+			get
+			{
+				return this._TDocente.Entity;
+			}
+			set
+			{
+				TDocente previousValue = this._TDocente.Entity;
+				if (((previousValue != value) 
+							|| (this._TDocente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TDocente.Entity = null;
+						previousValue.TAsignatura.Remove(this);
+					}
+					this._TDocente.Entity = value;
+					if ((value != null))
+					{
+						value.TAsignatura.Add(this);
+						this._CodDocente = value.CodDocente;
+					}
+					else
+					{
+						this._CodDocente = default(string);
+					}
+					this.SendPropertyChanged("TDocente");
+				}
 			}
 		}
 		
@@ -517,18 +553,6 @@ namespace Modelo
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TDocente_Asignatura(TDocente_Asignatura entity)
-		{
-			this.SendPropertyChanging();
-			entity.TAsignatura = this;
-		}
-		
-		private void detach_TDocente_Asignatura(TDocente_Asignatura entity)
-		{
-			this.SendPropertyChanging();
-			entity.TAsignatura = null;
 		}
 	}
 	
@@ -628,7 +652,7 @@ namespace Modelo
 		
 		private string _Nombre;
 		
-		private EntitySet<TDocente_Asignatura> _TDocente_Asignatura;
+		private EntitySet<TAsignatura> _TAsignatura;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -642,7 +666,7 @@ namespace Modelo
 		
 		public TDocente()
 		{
-			this._TDocente_Asignatura = new EntitySet<TDocente_Asignatura>(new Action<TDocente_Asignatura>(this.attach_TDocente_Asignatura), new Action<TDocente_Asignatura>(this.detach_TDocente_Asignatura));
+			this._TAsignatura = new EntitySet<TAsignatura>(new Action<TAsignatura>(this.attach_TAsignatura), new Action<TAsignatura>(this.detach_TAsignatura));
 			OnCreated();
 		}
 		
@@ -666,7 +690,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nombre
 		{
 			get
@@ -686,16 +710,16 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TDocente_TDocente_Asignatura", Storage="_TDocente_Asignatura", ThisKey="CodDocente", OtherKey="CodDocente")]
-		public EntitySet<TDocente_Asignatura> TDocente_Asignatura
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TDocente_TAsignatura", Storage="_TAsignatura", ThisKey="CodDocente", OtherKey="CodDocente")]
+		public EntitySet<TAsignatura> TAsignatura
 		{
 			get
 			{
-				return this._TDocente_Asignatura;
+				return this._TAsignatura;
 			}
 			set
 			{
-				this._TDocente_Asignatura.Assign(value);
+				this._TAsignatura.Assign(value);
 			}
 		}
 		
@@ -719,208 +743,16 @@ namespace Modelo
 			}
 		}
 		
-		private void attach_TDocente_Asignatura(TDocente_Asignatura entity)
+		private void attach_TAsignatura(TAsignatura entity)
 		{
 			this.SendPropertyChanging();
 			entity.TDocente = this;
 		}
 		
-		private void detach_TDocente_Asignatura(TDocente_Asignatura entity)
+		private void detach_TAsignatura(TAsignatura entity)
 		{
 			this.SendPropertyChanging();
 			entity.TDocente = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TDocente_Asignatura")]
-	public partial class TDocente_Asignatura : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CodDocente_Asignatura;
-		
-		private string _CodDocente;
-		
-		private string _CodAsignatura;
-		
-		private EntityRef<TAsignatura> _TAsignatura;
-		
-		private EntityRef<TDocente> _TDocente;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodDocente_AsignaturaChanging(string value);
-    partial void OnCodDocente_AsignaturaChanged();
-    partial void OnCodDocenteChanging(string value);
-    partial void OnCodDocenteChanged();
-    partial void OnCodAsignaturaChanging(string value);
-    partial void OnCodAsignaturaChanged();
-    #endregion
-		
-		public TDocente_Asignatura()
-		{
-			this._TAsignatura = default(EntityRef<TAsignatura>);
-			this._TDocente = default(EntityRef<TDocente>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodDocente_Asignatura
-		{
-			get
-			{
-				return this._CodDocente_Asignatura;
-			}
-			set
-			{
-				if ((this._CodDocente_Asignatura != value))
-				{
-					this.OnCodDocente_AsignaturaChanging(value);
-					this.SendPropertyChanging();
-					this._CodDocente_Asignatura = value;
-					this.SendPropertyChanged("CodDocente_Asignatura");
-					this.OnCodDocente_AsignaturaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string CodDocente
-		{
-			get
-			{
-				return this._CodDocente;
-			}
-			set
-			{
-				if ((this._CodDocente != value))
-				{
-					if (this._TDocente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodDocenteChanging(value);
-					this.SendPropertyChanging();
-					this._CodDocente = value;
-					this.SendPropertyChanged("CodDocente");
-					this.OnCodDocenteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string CodAsignatura
-		{
-			get
-			{
-				return this._CodAsignatura;
-			}
-			set
-			{
-				if ((this._CodAsignatura != value))
-				{
-					if (this._TAsignatura.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodAsignaturaChanging(value);
-					this.SendPropertyChanging();
-					this._CodAsignatura = value;
-					this.SendPropertyChanged("CodAsignatura");
-					this.OnCodAsignaturaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TAsignatura_TDocente_Asignatura", Storage="_TAsignatura", ThisKey="CodAsignatura", OtherKey="CodAsignatura", IsForeignKey=true)]
-		public TAsignatura TAsignatura
-		{
-			get
-			{
-				return this._TAsignatura.Entity;
-			}
-			set
-			{
-				TAsignatura previousValue = this._TAsignatura.Entity;
-				if (((previousValue != value) 
-							|| (this._TAsignatura.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TAsignatura.Entity = null;
-						previousValue.TDocente_Asignatura.Remove(this);
-					}
-					this._TAsignatura.Entity = value;
-					if ((value != null))
-					{
-						value.TDocente_Asignatura.Add(this);
-						this._CodAsignatura = value.CodAsignatura;
-					}
-					else
-					{
-						this._CodAsignatura = default(string);
-					}
-					this.SendPropertyChanged("TAsignatura");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TDocente_TDocente_Asignatura", Storage="_TDocente", ThisKey="CodDocente", OtherKey="CodDocente", IsForeignKey=true)]
-		public TDocente TDocente
-		{
-			get
-			{
-				return this._TDocente.Entity;
-			}
-			set
-			{
-				TDocente previousValue = this._TDocente.Entity;
-				if (((previousValue != value) 
-							|| (this._TDocente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TDocente.Entity = null;
-						previousValue.TDocente_Asignatura.Remove(this);
-					}
-					this._TDocente.Entity = value;
-					if ((value != null))
-					{
-						value.TDocente_Asignatura.Add(this);
-						this._CodDocente = value.CodDocente;
-					}
-					else
-					{
-						this._CodDocente = default(string);
-					}
-					this.SendPropertyChanged("TDocente");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -969,7 +801,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horario", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horario", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Horario
 		{
 			get
@@ -1014,46 +846,30 @@ namespace Modelo
 	public partial class TPrincipal
 	{
 		
-		private string _CodDocente_Asignatura;
-		
-		private string _CodLaboratorio;
+		private string _Numero_Laboratorio;
 		
 		private string _CodDia;
 		
 		private string _CodHorario;
 		
+		private string _CodAsignatura;
+		
 		public TPrincipal()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodDocente_Asignatura", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
-		public string CodDocente_Asignatura
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Laboratorio", DbType="VarChar(3)")]
+		public string Numero_Laboratorio
 		{
 			get
 			{
-				return this._CodDocente_Asignatura;
+				return this._Numero_Laboratorio;
 			}
 			set
 			{
-				if ((this._CodDocente_Asignatura != value))
+				if ((this._Numero_Laboratorio != value))
 				{
-					this._CodDocente_Asignatura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodLaboratorio", DbType="VarChar(3)")]
-		public string CodLaboratorio
-		{
-			get
-			{
-				return this._CodLaboratorio;
-			}
-			set
-			{
-				if ((this._CodLaboratorio != value))
-				{
-					this._CodLaboratorio = value;
+					this._Numero_Laboratorio = value;
 				}
 			}
 		}
@@ -1086,6 +902,48 @@ namespace Modelo
 				if ((this._CodHorario != value))
 				{
 					this._CodHorario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAsignatura", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string CodAsignatura
+		{
+			get
+			{
+				return this._CodAsignatura;
+			}
+			set
+			{
+				if ((this._CodAsignatura != value))
+				{
+					this._CodAsignatura = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spuTUsuario_InsertarResult
+	{
+		
+		private int _CodError;
+		
+		public spuTUsuario_InsertarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
+		public int CodError
+		{
+			get
+			{
+				return this._CodError;
+			}
+			set
+			{
+				if ((this._CodError != value))
+				{
+					this._CodError = value;
 				}
 			}
 		}
@@ -1294,7 +1152,7 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nombre
 		{
 			get
@@ -1306,120 +1164,6 @@ namespace Modelo
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
-				}
-			}
-		}
-	}
-	
-	public partial class spuTDocenteAsignatura_ActualizarResult
-	{
-		
-		private int _CodError;
-		
-		private string _Mensaje;
-		
-		public spuTDocenteAsignatura_ActualizarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
-		{
-			get
-			{
-				return this._CodError;
-			}
-			set
-			{
-				if ((this._CodError != value))
-				{
-					this._CodError = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
-		public string Mensaje
-		{
-			get
-			{
-				return this._Mensaje;
-			}
-			set
-			{
-				if ((this._Mensaje != value))
-				{
-					this._Mensaje = value;
-				}
-			}
-		}
-	}
-	
-	public partial class spuTDocenteAsignatura_InsertarResult
-	{
-		
-		private int _CodError;
-		
-		private string _Mensaje;
-		
-		public spuTDocenteAsignatura_InsertarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
-		{
-			get
-			{
-				return this._CodError;
-			}
-			set
-			{
-				if ((this._CodError != value))
-				{
-					this._CodError = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="VarChar(31) NOT NULL", CanBeNull=false)]
-		public string Mensaje
-		{
-			get
-			{
-				return this._Mensaje;
-			}
-			set
-			{
-				if ((this._Mensaje != value))
-				{
-					this._Mensaje = value;
-				}
-			}
-		}
-	}
-	
-	public partial class spuTUsuario_InsertarResult
-	{
-		
-		private int _CodError;
-		
-		public spuTUsuario_InsertarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodError", DbType="Int NOT NULL")]
-		public int CodError
-		{
-			get
-			{
-				return this._CodError;
-			}
-			set
-			{
-				if ((this._CodError != value))
-				{
-					this._CodError = value;
 				}
 			}
 		}

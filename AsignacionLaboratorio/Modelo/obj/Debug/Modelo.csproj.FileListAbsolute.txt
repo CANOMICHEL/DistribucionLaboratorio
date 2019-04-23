@@ -47,3 +47,10 @@ C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Modelo\obj\De
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.dll
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.pdb
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.dll
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\bin\Debug\Modelo.pdb
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.dll
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Modelo\obj\Debug\Modelo.pdb

@@ -66,3 +66,15 @@ C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Controlador\o
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.dll
 C:\Users\MCL\Desktop\DistribucionLaboratorio\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.pdb
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.dll
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\bin\Debug\Controlador.pdb
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.dll
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.pdb
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\bin\Debug\Modelo.dll.config
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csprojAssemblyReference.cache
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.FrmPadre.resources
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csproj.GenerateResource.cache
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.dll
+C:\Users\MCL\Desktop\DistribucionLaboratoriogit\AsignacionLaboratorio\Controlador\obj\Debug\Controlador.pdb
